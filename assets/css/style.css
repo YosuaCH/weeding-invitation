@@ -1,0 +1,4 @@
+body {
+    /* Mencegah scrollbar muncul selama animasi intro */
+    overflow: hidden; 
+}

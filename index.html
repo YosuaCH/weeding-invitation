@@ -1,12 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-</head>
-<body>
-    
-</body>
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weeding Invite</title>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- opentype -->
+    <script src="https://cdn.jsdelivr.net/npm/opentype.js/dist/opentype.min.js"></script>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- hero JS -->
+    <script src="assets/js/hero_text_animation.js" defer></script>
+  </head>
+  <body class="bg-black text-white font-sans overflow-hidden">
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full flex items-center justify-center">
+      <!-- Background Video -->
+      <div class="absolute inset-0">
+        <video playsinline autoplay muted class="w-full h-full object-cover">
+          <source src="assets/video/flower.mp4" type="video/mp4" />
+        </video>
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/40"></div>
+      </div>
+
+      <!-- Content  -->
+      <div class="relative z-10 text-center px-4 w-full max-w-4xl">
+        <p
+          id="sub-title"
+          class="opacity-0 text-white tracking-[0.3em] text-sm md:text-base mb-4"
+        >
+          THE WEDDING OF
+        </p>
+
+        <div id="name-wrapper" class="opacity-0">
+          <svg
+            id="name"
+            class="w-[clamp(280px,72vw,640px)] h-auto overflow-visible block mx-auto"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 160"
+          >
+            <defs>
+              <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="3" result="b" />
+                <feMerge>
+                  <feMergeNode in="b" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+          </svg>
+        </div>
+
+        <!-- Divider -->
+        <div
+          id="line"
+          class="w-0 h-[1px] bg-white mx-auto my-5 opacity-50"
+        ></div>
+
+        <p
+          id="date"
+          class="opacity-0 text-white tracking-[0.25em] text-xs md:text-sm"
+        >
+          25 . 12 . 2026
+        </p>
+      </div>
+    </section>
+  </body>
 </html>

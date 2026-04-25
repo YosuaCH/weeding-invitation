@@ -12,8 +12,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Global CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
-    <!-- hero JS -->
+    <!-- Scripts -->
     <script src="assets/js/hero_text_animation.js" defer></script>
+    <script src="assets/js/audio.js" defer></script>
   </head>
   <body class="bg-black text-white font-sans overflow-hidden">
     <!-- Hero Section -->
@@ -69,5 +70,78 @@
         </p>
       </div>
     </section>
+
+    <!-- Music Toggle Button -->
+    <button
+      id="music_toggle"
+      class="paused fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-transparent group outline-none"
+    >
+      <div
+        class="relative flex items-center justify-center w-10 h-10 rounded-full bg-black/40 border border-white/20 backdrop-blur-md shadow-lg overflow-hidden"
+      >
+        <!-- Music Disc -->
+        <svg
+          class="vinyl-icon w-5 h-5 text-white/90"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="9"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            r="3"
+            stroke="currentColor"
+            fill="currentColor"
+          />
+          <path
+            d="M12 3v3m0 12v3m9-9h-3M6 12H3m13.364-6.364l-2.121 2.121m-8.486 8.486l-2.121 2.121m12.728 0l-2.121-2.121M6.343 6.343l2.121 2.121"
+            stroke-width="1"
+            opacity="0.5"
+          />
+        </svg>
+      </div>
+
+      <!-- Efek Sound Wave & Label -->
+      <div class="flex flex-col items-start justify-center gap-1">
+        <svg
+          id="audio-wave"
+          width="60"
+          height="20"
+          viewBox="0 0 60 20"
+          class="overflow-visible"
+        >
+          <path
+            id="wave-path"
+            d="M 0 10 L 60 10"
+            fill="none"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span
+          class="text-[9px] text-white/70 tracking-widest font-light"
+          id="music_label"
+          >SOUND OFF</span
+        >
+      </div>
+    </button>
+
+    <!--Audio -->
+    <audio id="bg-music" loop>
+      <source
+        src="assets/audio/Christina Perri - A Thousand Years Piano.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
   </body>
 </html>

@@ -1,4 +1,18 @@
 body {
-    /* Mencegah scrollbar muncul selama animasi intro */
-    overflow: hidden; 
+  /* Mencegah scrollbar muncul selama animasi intro */
+  overflow: hidden;
+}
+
+/* Animasi kaset */
+.playing .vinyl-icon {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

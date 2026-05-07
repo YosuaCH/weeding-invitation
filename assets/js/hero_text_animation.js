@@ -52,3 +52,4 @@ opentype.load(
       .to("#date", { opacity: 1, duration: 1 }, "<");
   },
 );
+

@@ -1,6 +1,5 @@
-body {
-  /* Mencegah scrollbar muncul selama animasi intro */
-  overflow: hidden;
+.hidden-initially {
+  display: none;
 }
 
 /* Animasi kaset */

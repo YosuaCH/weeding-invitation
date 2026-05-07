@@ -33,6 +33,17 @@ opentype.load(
     });
     const tl = gsap.timeline();
 
+    // Unlock scrolling
+    setTimeout(() => {
+      document.body.classList.remove("overflow-hidden");
+      document.body.style.overflow = "auto";
+      const eventsSection = document.getElementById("events-section");
+      if (eventsSection) {
+        eventsSection.classList.remove("hidden-initially");
+        gsap.from(eventsSection, { opacity: 0, duration: 1 });
+      }
+    }, 0);
+
     tl.to("#sub-title", { opacity: 1, duration: 1, ease: "power2.out" })
       .to("#name-wrapper", { opacity: 1, duration: 0 })
       .to(pathEl, {
@@ -52,4 +63,3 @@ opentype.load(
       .to("#date", { opacity: 1, duration: 1 }, "<");
   },
 );
-

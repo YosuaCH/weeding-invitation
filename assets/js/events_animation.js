@@ -1,4 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // 1. Initialize Lenis Smooth Scroll
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: "vertical",
+    gestureOrientation: "vertical",
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    smoothTouch: false,
+    touchMultiplier: 2,
+    infinite: false,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Connect Lenis to GSAP ScrollTrigger
+  lenis.on("scroll", ScrollTrigger.update);
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+  gsap.ticker.lagSmoothing(0);
+
   if (window.innerWidth >= 768) {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -7,10 +33,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const titleEl = document.getElementById("event-title");
     const timeEl = document.getElementById("event-time");
     const locationEl = document.getElementById("event-location");
+    const infoPin = document.getElementById("event-info-pin");
+    const scrollWrapper = document.querySelector(".events-scroll-wrapper");
 
-    // Smooth Scroll/Parallax for each row
+    // 2. GSAP Pinning for the central card
+    if (infoPin && scrollWrapper) {
+      ScrollTrigger.create({
+        trigger: scrollWrapper,
+        start: "top top",
+        end: "bottom bottom",
+        pin: infoPin,
+        pinSpacing: false,
+      });
+    }
+
+    // 3. Smooth Scroll/Parallax for each row
     eventRows.forEach((row, index) => {
-      // Parallax effect for inner images
       const leftImg = row.querySelector(".parallax-img-left");
       const rightImg = row.querySelector(".parallax-img-right");
 
@@ -58,20 +96,20 @@ document.addEventListener("DOMContentLoaded", () => {
       const location = row.getAttribute("data-location") || "";
       const bgColor = row.getAttribute("data-bg-color") || "#f8f6f0";
 
-      // Fade out
+      // Only update if there's actual data, otherwise keep current
+      if (!title && !time && !location) return;
+
       gsap.to([titleEl, timeEl, locationEl], {
         opacity: 0,
         y: 10,
         duration: 0.3,
         ease: "power2.in",
         onComplete: () => {
-          // Update text
           titleEl.innerText = title;
           timeEl.innerText = time;
           locationEl.innerText = location;
           if (eventInfoCard) eventInfoCard.style.backgroundColor = bgColor;
 
-          // Fade back in
           gsap.to([titleEl, timeEl, locationEl], {
             opacity: 1,
             y: 0,
@@ -83,14 +121,18 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    // Initial state
     if (eventRows.length > 0 && titleEl) {
       const firstRow = eventRows[0];
-      titleEl.innerText = firstRow.getAttribute("data-title") || "";
-      timeEl.innerText = firstRow.getAttribute("data-time") || "";
-      locationEl.innerText = firstRow.getAttribute("data-location") || "";
-      if (eventInfoCard)
-        eventInfoCard.style.backgroundColor =
-          firstRow.getAttribute("data-bg-color") || "#f8f6f0";
+      const title = firstRow.getAttribute("data-title") || "";
+      if (title) {
+        titleEl.innerText = title;
+        timeEl.innerText = firstRow.getAttribute("data-time") || "";
+        locationEl.innerText = firstRow.getAttribute("data-location") || "";
+        if (eventInfoCard)
+          eventInfoCard.style.backgroundColor =
+            firstRow.getAttribute("data-bg-color") || "#f8f6f0";
+      }
     }
   }
 });

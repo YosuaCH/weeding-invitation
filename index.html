@@ -109,9 +109,9 @@
               </div>
             </div>
             <div class="text-center">
-              <h3 class="text-2xl font-serif mb-2">Pemberkatan</h3>
-              <p class="text-sm text-neutral-600 mb-1">08:00 WIB - 10:00 WIB</p>
-              <p class="text-sm text-neutral-600">Gereja Katedral Jakarta</p>
+              <h3 class="text-2xl font-serif mb-2"></h3>
+              <p class="text-sm text-neutral-600 mb-1"></p>
+              <p class="text-sm text-neutral-600"></p>
             </div>
           </article>
 
@@ -124,23 +124,39 @@
               <div
                 class="absolute inset-0 bg-[#3a444d] flex items-center justify-center transition-opacity duration-500"
               >
-                <span class="text-neutral-300 font-serif italic text-xl"
-                  >Resepsi Photo</span
-                >
+                <span class="text-neutral-300 font-serif italic text-xl"></span>
               </div>
               <div
                 class="absolute inset-0 bg-[#2a3239] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               >
-                <span class="text-neutral-400 font-serif italic text-xl"
-                  >Alternate Photo</span
-                >
+                <span class="text-neutral-400 font-serif italic text-xl"></span>
               </div>
             </div>
             <div class="text-center">
-              <h3 class="text-2xl font-serif mb-2">Resepsi Pernikahan</h3>
-              <p class="text-sm text-neutral-600 mb-1">19:00 WIB - Selesai</p>
-              <p class="text-sm text-neutral-600">Hotel Mulia Senayan</p>
+              <h3 class="text-2xl font-serif mb-2"></h3>
+              <p class="text-sm text-neutral-600 mb-1"></p>
+              <p class="text-sm text-neutral-600"></p>
             </div>
+          </article>
+
+          <!-- Event 3 Mobile -->
+          <article>
+            <div
+              class="w-full aspect-[3/4] bg-neutral-200 mb-4 rounded overflow-hidden relative group"
+            >
+              <!-- Placeholder for Intimate Dinner image -->
+              <div
+                class="absolute inset-0 bg-[#2d3a3a] flex items-center justify-center transition-opacity duration-500"
+              >
+                <span class="text-neutral-300 font-serif italic text-xl"></span>
+              </div>
+              <div
+                class="absolute inset-0 bg-[#1f2929] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              >
+                <span class="text-neutral-400 font-serif italic text-xl"></span>
+              </div>
+            </div>
+            <div class="text-center"></div>
           </article>
         </div>
 
@@ -158,10 +174,18 @@
               <div class="flex items-center justify-center pointer-events-auto">
                 <!-- Info Card -->
                 <div
-                  class="bg-[#f8f6f0] p-8 w-full aspect-[3/4] flex flex-col items-center justify-center text-center border border-neutral-200 shadow-xl transition-colors duration-500"
+                  class="bg-[#f8f6f0] p-8 mt-7 w-full aspect-[3/4] flex flex-col items-center justify-center text-center border border-neutral-200 shadow-xl transition-colors duration-500"
                   id="event-info-card"
                 >
-                  <div class="mb-6 flex justify-center"></div>
+                  <h3 id="event-title" class="text-3xl font-serif mb-4"></h3>
+                  <p
+                    id="event-time"
+                    class="text-sm tracking-widest mb-2 text-neutral-500"
+                  ></p>
+                  <p
+                    id="event-location"
+                    class="text-sm font-light text-neutral-600"
+                  ></p>
                 </div>
               </div>
 
@@ -172,11 +196,11 @@
 
           <!-- Scrolling Rows (pulled up to overlap with sticky container) -->
           <div
-            class="relative z-10 w-full container mx-auto px-4 -mt-[100vh] pt-[8vh] pb-[50vh]"
+            class="relative z-10 w-full container mx-auto px-4 -mt-[100vh] pt-[8vh] pb-[0.1vh]"
           >
             <!-- Row 1 -->
             <div
-              class="event-row grid grid-cols-3 gap-8 items-center w-full mb-5"
+              class="event-row grid grid-cols-3 gap-8 items-center w-full mb-8"
               data-bg-color="#f8f6f0"
             >
               <!-- Left Image -->
@@ -185,17 +209,17 @@
                   class="w-full aspect-[3/4] bg-neutral-200 relative group overflow-hidden shadow-lg"
                 >
                   <div
-                    class="absolute inset-0 bg-[#e6e2dd] flex items-center justify-center transition-opacity duration-700"
+                    class="parallax-img-left absolute inset-[-15%_0] bg-[#e6e2dd] flex items-center justify-center transition-opacity duration-700"
                   >
                     <span
                       class="text-neutral-400 font-serif italic text-sm text-center px-4"
-                      >Lorem</span
+                      >Memories of Grace</span
                     >
                   </div>
                 </div>
               </div>
 
-              <!-- Center Spacer for Pinned Info -->
+              <!-- Center Spacer -->
               <div class="col-span-1"></div>
 
               <!-- Right Image -->
@@ -204,11 +228,11 @@
                   class="w-full aspect-[3/4] bg-neutral-200 relative group overflow-hidden shadow-lg"
                 >
                   <div
-                    class="absolute inset-0 bg-[#d5cfc7] flex items-center justify-center transition-opacity duration-700"
+                    class="parallax-img-right absolute inset-[-15%_0] bg-[#d5cfc7] flex items-center justify-center transition-opacity duration-700"
                   >
                     <span
                       class="text-neutral-500 font-serif italic text-lg text-center px-4"
-                      >Lorem</span
+                      >Sacred Vows</span
                     >
                   </div>
                 </div>
@@ -217,7 +241,7 @@
 
             <!-- Row 2 -->
             <div
-              class="event-row grid grid-cols-3 gap-8 items-center w-full mb-5"
+              class="event-row grid grid-cols-3 gap-8 items-center w-full mb-8"
               data-bg-color="#f0f2f5"
             >
               <!-- Left Image  -->
@@ -226,17 +250,17 @@
                   class="w-full aspect-[3/4] bg-neutral-200 relative group overflow-hidden shadow-lg"
                 >
                   <div
-                    class="absolute inset-0 bg-[#3a444d] flex items-center justify-center transition-opacity duration-700"
+                    class="parallax-img-left absolute inset-[-15%_0] bg-[#3a444d] flex items-center justify-center transition-opacity duration-700"
                   >
                     <span
                       class="text-neutral-300 font-serif italic text-sm text-center px-4"
-                      >Lorem</span
+                      >Grand Celebration</span
                     >
                   </div>
                 </div>
               </div>
 
-              <!-- Center Spacer for Pinned Info -->
+              <!-- Center Spacer -->
               <div class="col-span-1"></div>
 
               <!-- Right Image -->
@@ -245,11 +269,52 @@
                   class="w-full aspect-[3/4] bg-neutral-200 relative group overflow-hidden shadow-lg"
                 >
                   <div
-                    class="absolute inset-0 bg-[#2a3239] flex items-center justify-center transition-opacity duration-700"
+                    class="parallax-img-right absolute inset-[-15%_0] bg-[#2a3239] flex items-center justify-center transition-opacity duration-700"
                   >
                     <span
                       class="text-neutral-400 font-serif italic text-lg text-center px-4"
-                      >Lorem</span
+                      >Dancing Hearts</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div
+              class="event-row grid grid-cols-3 gap-8 items-center w-full mb-8"
+              data-bg-color="#e8e9eb"
+            >
+              <!-- Left Image  -->
+              <div class="col-span-1">
+                <div
+                  class="w-full aspect-[3/4] bg-neutral-200 relative group overflow-hidden shadow-lg"
+                >
+                  <div
+                    class="parallax-img-left absolute inset-[-15%_0] bg-[#2d3a3a] flex items-center justify-center transition-opacity duration-700"
+                  >
+                    <span
+                      class="text-neutral-300 font-serif italic text-sm text-center px-4"
+                      >Moonlight Toast</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Center Spacer -->
+              <div class="col-span-1"></div>
+
+              <!-- Right Image -->
+              <div class="col-span-1">
+                <div
+                  class="w-full aspect-[3/4] bg-neutral-200 relative group overflow-hidden shadow-lg"
+                >
+                  <div
+                    class="parallax-img-right absolute inset-[-15%_0] bg-[#1f2929] flex items-center justify-center transition-opacity duration-700"
+                  >
+                    <span
+                      class="text-neutral-400 font-serif italic text-lg text-center px-4"
+                      >Eternal Love</span
                     >
                   </div>
                 </div>

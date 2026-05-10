@@ -2,6 +2,23 @@
   display: none;
 }
 
+/* Parallax Adjustments */
+.parallax-img-left,
+.parallax-img-right {
+  will-change: transform;
+}
+
+#event-info-card {
+  transition:
+    background-color 0.8s ease,
+    border-color 0.8s ease;
+}
+
+/* Custom Grid for Events */
+.events-scroll-wrapper {
+  overflow: visible;
+}
+
 /* Animasi kaset */
 .playing .vinyl-icon {
   animation: spin 3s linear infinite;

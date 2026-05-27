@@ -37,11 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrollWrapper = document.querySelector(".events-scroll-wrapper");
 
     // 2. GSAP Pinning for the central card
-    if (infoPin && scrollWrapper) {
+    if (infoPin && scrollWrapper && eventRows.length > 0) {
       ScrollTrigger.create({
         trigger: scrollWrapper,
         start: "top top",
-        end: "bottom bottom",
+        endTrigger: eventRows[eventRows.length - 1],
+        end: "top 4%",
         pin: infoPin,
         pinSpacing: false,
       });

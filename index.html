@@ -32,8 +32,9 @@
         <div class="absolute inset-0 bg-black/40"></div>
       </div>
 
-      <!-- Content  -->
-      <div class="relative z-10 text-center px-4 w-full max-w-4xl">
+      <!-- Content (Animates into Navbar) -->
+      <div class="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+        <div id="hero-content" class="text-center px-4 w-full max-w-4xl pointer-events-auto">
         <p
           id="sub-title"
           class="opacity-0 text-white tracking-[0.3em] text-sm md:text-base mb-4"
@@ -72,6 +73,7 @@
         >
           25 . 12 . 2026
         </p>
+        </div>
       </div>
     </section>
 
@@ -167,9 +169,11 @@
           <!-- Info Container (Pinned via GSAP) -->
           <div
             id="event-info-pin"
-            class="absolute top-0 left-0 w-full h-screen pointer-events-none z-30 flex items-center justify-center"
+            class="absolute top-0 left-0 w-full h-screen pointer-events-none z-30 pt-[4vh]"
           >
-            <div class="container mx-auto px-4 grid grid-cols-3 gap-8 w-full">
+            <div
+              class="container mx-auto px-0 grid grid-cols-3 gap-4 items-center w-full"
+            >
               <!-- Empty Left Col -->
               <div></div>
 
@@ -177,7 +181,7 @@
               <div class="flex items-center justify-center pointer-events-auto">
                 <!-- Info Card -->
                 <div
-                  class="bg-[#f8f6f0] p-8 mt-7 w-full aspect-[3/4] flex flex-col items-center justify-center text-center border border-neutral-200 shadow-xl transition-colors duration-500"
+                  class="bg-[#f8f6f0] p-10 w-full aspect-[3/4] flex flex-col items-center justify-center text-center border border-neutral-200 shadow-xl transition-colors duration-500"
                   id="event-info-card"
                 >
                   <h3 id="event-title" class="text-3xl font-serif mb-4"></h3>
@@ -191,19 +195,18 @@
                   ></p>
                 </div>
               </div>
-
-              <!-- Empty Right Col -->
+              <!-- Empty Left Col -->
               <div></div>
             </div>
           </div>
 
           <!-- Scrolling Rows -->
           <div
-            class="relative z-10 w-full container mx-auto px-4 pt-[10vh] pb-[2vh]"
+            class="relative z-10 w-full container mx-auto px-0 pt-[4vh] pb-[2vh]"
           >
             <!-- Row 1 -->
             <div
-              class="event-row grid grid-cols-3 gap-8 items-center w-full mb-8"
+              class="event-row grid grid-cols-3 gap-4 items-center w-full mb-8"
               data-bg-color="#f8f6f0"
             >
               <!-- Left Image -->
@@ -244,7 +247,7 @@
 
             <!-- Row 2 -->
             <div
-              class="event-row grid grid-cols-3 gap-8 items-center w-full mb-8"
+              class="event-row grid grid-cols-3 gap-4 items-center w-full mb-8"
               data-bg-color="#f0f2f5"
             >
               <!-- Left Image  -->
@@ -285,7 +288,7 @@
 
             <!-- Row 3 -->
             <div
-              class="event-row grid grid-cols-3 gap-8 items-center w-full mb-8"
+              class="event-row grid grid-cols-3 gap-4 items-center w-full mb-8"
               data-bg-color="#e8e9eb"
             >
               <!-- Left Image  -->

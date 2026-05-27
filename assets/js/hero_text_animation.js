@@ -61,5 +61,21 @@ opentype.load(
       )
       .to("#line", { width: 200, duration: 0.9, ease: "power2.out" }, "-=21.5")
       .to("#date", { opacity: 1, duration: 1 }, "<");
+
+    // --- Navbar Scroll Animation ---
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Shrink and move the ENTIRE content to the top as a navbar
+    gsap.to("#hero-content", {
+      scrollTrigger: {
+        trigger: "body",
+        start: "top top", // Mulai menyusut tepat saat mulai scroll
+        end: "250vh top", // Jarak seberapa lama dia menyusut (semakin besar angkanya, semakin lambat mengecilnya)
+        scrub: true, // TRUE = 100% mengikuti scroll tanpa delay sama sekali (seperti Casper Caviar)
+      },
+      y: () => -(window.innerHeight / 2) + 50,
+      scale: 0.25,
+      ease: "power1.inOut",
+    });
   },
 );

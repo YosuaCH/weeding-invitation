@@ -62,54 +62,8 @@ opentype.load(
       .to("#line", { width: 200, duration: 0.9, ease: "power2.out" }, "-=21.5")
       .to("#date", { opacity: 1, duration: 1 }, "<");
 
-    // --- Navbar Scroll Animation ---
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Shrink and move the ENTIRE content to the top as a navbar
-    gsap.to("#hero-content", {
-      scrollTrigger: {
-        trigger: "body",
-        start: "top top",
-        end: "300vh top",
-        scrub: true,
-      },
-      y: () => -(window.innerHeight / 2) + 50,
-      scale: 0.25,
-      ease: "power1.inOut",
-    });
-
-    const colorTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#events-section",
-        start: "top 100px",
-        end: "top 30px",
-        scrub: true,
-      },
-    });
-
-    colorTl
-      .fromTo(
-        pathEl,
-        { fill: "rgba(255,255,255,1)", stroke: "rgba(255,255,255,1)" },
-        {
-          fill: "#1a1a1a",
-          stroke: "#1a1a1a",
-          ease: "none",
-          immediateRender: false,
-        },
-        0,
-      )
-      .fromTo(
-        ["#sub-title", "#date"],
-        { color: "rgba(255,255,255,1)" },
-        { color: "#1a1a1a", ease: "none", immediateRender: false },
-        0,
-      )
-      .fromTo(
-        "#line",
-        { backgroundColor: "rgba(255,255,255,1)" },
-        { backgroundColor: "#1a1a1a", ease: "none", immediateRender: false },
-        0,
-      );
+    if (window.initScrollAnimations) {
+      window.initScrollAnimations();
+    }
   },
 );

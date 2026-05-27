@@ -16,7 +16,7 @@ window.initScrollAnimations = function () {
 
   const colorTl = gsap.timeline({
     scrollTrigger: {
-      trigger: "#events-section",
+      trigger: "#story-section",
       start: "top 100px",
       end: "top 30px",
       scrub: true,
@@ -47,119 +47,104 @@ window.initScrollAnimations = function () {
       { backgroundColor: "#1a1a1a", ease: "none", immediateRender: false },
       0,
     );
+
   // --- Audio Button Color Animation ---
-  const audioColorTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#events-section",
-      start: "top 90%",
-      end: "top 75%",
-      scrub: true,
-    },
+  function setAudioDark() {
+    gsap.to(["#music_label", ".vinyl-icon"], {
+      color: "#1a1a1a",
+      duration: 0.3,
+      overwrite: "auto",
+    });
+    gsap.to("#wave-path", {
+      stroke: "#1a1a1a",
+      duration: 0.3,
+      overwrite: "auto",
+    });
+    gsap.to("#music_toggle > div.rounded-full", {
+      backgroundColor: "rgba(255,255,255,0.4)",
+      borderColor: "rgba(0,0,0,0.2)",
+      duration: 0.3,
+      overwrite: "auto",
+    });
+  }
+
+  function setAudioLight() {
+    gsap.to(["#music_label", ".vinyl-icon"], {
+      color: "rgba(255,255,255,1)",
+      duration: 0.3,
+      overwrite: "auto",
+    });
+    gsap.to("#wave-path", {
+      stroke: "rgba(255,255,255,1)",
+      duration: 0.3,
+      overwrite: "auto",
+    });
+    gsap.to("#music_toggle > div.rounded-full", {
+      backgroundColor: "rgba(0,0,0,0.4)",
+      borderColor: "rgba(255,255,255,0.2)",
+      duration: 0.3,
+      overwrite: "auto",
+    });
+  }
+
+  // Berubah gelap saat masuk ke area konten putih (#story-section)
+  ScrollTrigger.create({
+    trigger: "#story-section",
+    start: "top 90%",
+    onEnter: setAudioDark,
+    onLeaveBack: setAudioLight,
   });
 
-  audioColorTl
-    .fromTo(
-      ["#music_label", ".vinyl-icon"],
-      { color: "rgba(255,255,255,1)" },
-      { color: "#1a1a1a", ease: "none", immediateRender: false },
-      0,
-    )
-    .fromTo(
-      "#wave-path",
-      { stroke: "rgba(255,255,255,1)" },
-      { stroke: "#1a1a1a", ease: "none", immediateRender: false },
-      0,
-    )
-    .fromTo(
-      "#music_toggle > div.rounded-full",
-      {
-        backgroundColor: "rgba(0,0,0,0.4)",
-        borderColor: "rgba(255,255,255,0.2)",
-      },
-      {
-        backgroundColor: "rgba(255,255,255,0.4)",
-        borderColor: "rgba(0,0,0,0.2)",
-        ease: "none",
-        immediateRender: false,
-      },
-      0,
-    );
-
-  // --- Audio Button Revert to White on Dark Images ---
+  // Berubah kembali terang HANYA saat menutupi gambar gelap
   const darkSections = document.querySelectorAll(".dark-section-trigger");
   darkSections.forEach((section) => {
-    const revertTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top 95%",
-        end: "top 80%",
-        scrub: true,
-      },
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top 95%",
+      end: "bottom 80%",
+      onEnter: setAudioLight,
+      onLeave: setAudioDark,
+      onEnterBack: setAudioLight,
+      onLeaveBack: setAudioDark,
     });
-
-    revertTl
-      .fromTo(
-        ["#music_label", ".vinyl-icon"],
-        { color: "#1a1a1a" },
-        { color: "rgba(255,255,255,1)", ease: "none", immediateRender: false },
-        0,
-      )
-      .fromTo(
-        "#wave-path",
-        { stroke: "#1a1a1a" },
-        { stroke: "rgba(255,255,255,1)", ease: "none", immediateRender: false },
-        0,
-      )
-      .fromTo(
-        "#music_toggle > div.rounded-full",
-        {
-          backgroundColor: "rgba(255,255,255,0.4)",
-          borderColor: "rgba(0,0,0,0.2)",
-        },
-        {
-          backgroundColor: "rgba(0,0,0,0.4)",
-          borderColor: "rgba(255,255,255,0.2)",
-          ease: "none",
-          immediateRender: false,
-        },
-        0,
-      );
-
-    const revertBackTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "bottom 95%",
-        end: "bottom 80%",
-        scrub: true,
-      },
-    });
-
-    revertBackTl
-      .fromTo(
-        ["#music_label", ".vinyl-icon"],
-        { color: "rgba(255,255,255,1)" },
-        { color: "#1a1a1a", ease: "none", immediateRender: false },
-        0,
-      )
-      .fromTo(
-        "#wave-path",
-        { stroke: "rgba(255,255,255,1)" },
-        { stroke: "#1a1a1a", ease: "none", immediateRender: false },
-        0,
-      )
-      .fromTo(
-        "#music_toggle > div.rounded-full",
-        {
-          backgroundColor: "rgba(0,0,0,0.4)",
-          borderColor: "rgba(255,255,255,0.2)",
-        },
-        {
-          backgroundColor: "rgba(255,255,255,0.4)",
-          borderColor: "rgba(0,0,0,0.2)",
-          ease: "none",
-          immediateRender: false,
-        },
-        0,
-      );
   });
+
+  const editorialText = document.querySelector(".editorial-text");
+  const editorialImage = document.querySelector(".editorial-image");
+
+  if (editorialText) gsap.set(editorialText, { y: 60, opacity: 0 });
+  if (editorialImage) gsap.set(editorialImage, { scale: 1.15 });
+
+  if (editorialText) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            gsap.to(editorialText, {
+              y: 0,
+              opacity: 1,
+              duration: 1.4,
+              ease: "power3.out",
+            });
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+    observer.observe(editorialText);
+  }
+
+  if (editorialImage) {
+    gsap.to(editorialImage, {
+      scrollTrigger: {
+        trigger: "#events-section",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+      scale: 1,
+      ease: "none",
+    });
+  }
 };

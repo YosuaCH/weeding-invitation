@@ -37,10 +37,16 @@ opentype.load(
     setTimeout(() => {
       document.body.classList.remove("overflow-hidden");
       document.body.style.overflow = "auto";
-      const eventsSection = document.getElementById("events-section");
+      const eventsSection = document.getElementById("story-section");
       if (eventsSection) {
         eventsSection.classList.remove("hidden-initially");
-        gsap.from(eventsSection, { opacity: 0, duration: 1 });
+        gsap.from(eventsSection, {
+          opacity: 0,
+          duration: 1,
+          onComplete: () => {
+            ScrollTrigger.refresh();
+          },
+        });
       }
     }, 0);
 
@@ -65,5 +71,9 @@ opentype.load(
     if (window.initScrollAnimations) {
       window.initScrollAnimations();
     }
+
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200);
   },
 );

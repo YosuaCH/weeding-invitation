@@ -83,17 +83,26 @@
       </div>
     </section>
 
-    <!-- Our Events Section -->
+    <!-- Story Section -->
     <section
-      id="events-section"
+      id="story-section"
       class="relative bg-white text-black py-20 min-h-screen hidden-initially"
     >
       <div class="container mx-auto px-4">
         <h2
-          class="text-4xl md:text-5xl font-serif text-center mb-16 tracking-widest uppercase"
+          class="text-4xl md:text-6xl font-serif text-center mb-3 leading-tight"
         >
-          Rangkaian Acara
+          <span
+            class="block text-[10px] tracking-[0.5em] uppercase mb-4 text-[#1a1a1a]/40 font-sans font-normal"
+            >— Chapter I —</span
+          >
+          <i>Our Story</i>
         </h2>
+        <p
+          class="text-center text-sm text-neutral-400 tracking-widest uppercase mb-16 font-sans"
+        >
+          Where it all began
+        </p>
 
         <!-- Mobile Layout (Stacked) -->
         <div class="block md:hidden space-y-12">
@@ -330,6 +339,84 @@
                     >
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Section -->
+    <section
+      id="events-section"
+      class="relative bg-white text-[#1a1a1a] py-24 min-h-screen flex items-center"
+    >
+      <div class="container mx-auto px-4 md:px-12 lg:px-24">
+        <div
+          class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center"
+        >
+          <!-- Left: Text Area -->
+          <div
+            class="col-span-1 md:col-span-5 flex flex-col justify-center editorial-text opacity-0 translate-y-10"
+          >
+            <div class="border-l-2 border-[#1a1a1a]/20 pl-4 mb-8">
+              <span
+                class="text-[10px] tracking-[0.5em] uppercase text-[#1a1a1a]/40 block mb-1 font-sans"
+                >Chapter II</span
+              >
+              <span
+                class="text-sm tracking-[0.25em] uppercase text-[#1a1a1a]/70 block font-sans font-medium"
+                >The Venue</span
+              >
+            </div>
+            <h2 class="text-5xl md:text-7xl font-serif leading-[1.1] mb-8">
+              Where <br /><i class="font-light">Forever</i><br />Begins
+            </h2>
+            <div
+              class="text-sm md:text-base leading-relaxed text-[#1a1a1a]/70 space-y-4"
+            >
+              <p>
+                Nestled in the heart of the city, our celebration will take
+                place at a venue that reflects the elegance and warmth of the
+                love we share — a space where cherished memories are born.
+              </p>
+              <p>
+                We invite you to join us as we exchange our vows and begin our
+                forever, surrounded by the ones who matter most.
+              </p>
+            </div>
+            <div class="mt-10 flex flex-col gap-2">
+              <span
+                class="text-[10px] tracking-[0.4em] uppercase text-[#1a1a1a]/40"
+                >Location</span
+              >
+              <p class="font-serif text-lg text-[#1a1a1a]">
+                Grand Ballroom, The Palace Hotel
+              </p>
+              <p class="text-sm text-[#1a1a1a]/60">
+                Jl. Example No. 123, Jakarta
+              </p>
+            </div>
+            <div class="mt-10 w-16 h-[1px] bg-[#1a1a1a]/20"></div>
+          </div>
+
+          <!-- Spacer-->
+          <div class="hidden md:block col-span-1"></div>
+
+          <!-- Right: Image Area -->
+          <div
+            class="col-span-1 md:col-span-6 editorial-image-wrapper overflow-hidden dark-section-trigger"
+          >
+            <div
+              class="w-full aspect-[3/4] md:aspect-[4/5] bg-neutral-300 relative editorial-image scale-110"
+            >
+              <!-- Placeholder Image -->
+              <div
+                class="absolute inset-0 bg-[#3a444d] flex items-center justify-center"
+              >
+                <span class="text-white/50 font-serif italic text-xl"
+                  >Insert Photo</span
+                >
               </div>
             </div>
           </div>

@@ -77,5 +77,39 @@ opentype.load(
       scale: 0.25,
       ease: "power1.inOut",
     });
+
+    const colorTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#events-section",
+        start: "top 100px",
+        end: "top 30px",
+        scrub: true,
+      },
+    });
+
+    colorTl
+      .fromTo(
+        pathEl,
+        { fill: "rgba(255,255,255,1)", stroke: "rgba(255,255,255,1)" },
+        {
+          fill: "#1a1a1a",
+          stroke: "#1a1a1a",
+          ease: "none",
+          immediateRender: false,
+        },
+        0,
+      )
+      .fromTo(
+        ["#sub-title", "#date"],
+        { color: "rgba(255,255,255,1)" },
+        { color: "#1a1a1a", ease: "none", immediateRender: false },
+        0,
+      )
+      .fromTo(
+        "#line",
+        { backgroundColor: "rgba(255,255,255,1)" },
+        { backgroundColor: "#1a1a1a", ease: "none", immediateRender: false },
+        0,
+      );
   },
 );

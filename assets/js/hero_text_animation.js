@@ -69,9 +69,9 @@ opentype.load(
     gsap.to("#hero-content", {
       scrollTrigger: {
         trigger: "body",
-        start: "top top", // Mulai menyusut tepat saat mulai scroll
-        end: "250vh top", // Jarak seberapa lama dia menyusut (semakin besar angkanya, semakin lambat mengecilnya)
-        scrub: true, // TRUE = 100% mengikuti scroll tanpa delay sama sekali (seperti Casper Caviar)
+        start: "top top",
+        end: "300vh top",
+        scrub: true,
       },
       y: () => -(window.innerHeight / 2) + 50,
       scale: 0.25,

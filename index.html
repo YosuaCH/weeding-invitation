@@ -20,8 +20,9 @@
     <script src="assets/js/events_animation.js" defer></script>
     <script src="assets/js/adaptif_text_animation.js" defer></script>
     <script src="assets/js/audio.js" defer></script>
+    <script src="assets/js/couple_animation.js" defer></script>
   </head>
-  <body class="bg-black text-white font-sans overflow-hidden">
+  <body class="bg-[#f9f6f1] text-white font-sans overflow-hidden">
     <!-- Hero Section -->
     <section class="relative h-screen w-full flex items-center justify-center">
       <!-- Background Video -->
@@ -83,10 +84,235 @@
       </div>
     </section>
 
+    <!-- Couple Section -->
+    <section
+      id="couple-section"
+      class="relative bg-[#f9f6f1] text-[#1a1a1a] min-h-screen overflow-hidden hidden-initially"
+    >
+      <!-- Decorative background lines -->
+      <div
+        class="couple-bg-lines absolute inset-0 pointer-events-none overflow-hidden"
+      >
+        <div
+          class="couple-line-v absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[1px] bg-[#1a1a1a]/8"
+        ></div>
+        <div
+          class="couple-line-h absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[1px] bg-[#1a1a1a]/8"
+        ></div>
+      </div>
+
+      <!-- Issue Header (Magazine-style) -->
+      <div class="couple-header relative z-10 pt-16 pb-10 px-6 text-center">
+        <p
+          class="couple-eyebrow text-[9px] tracking-[0.6em] uppercase text-[#1a1a1a]/35 font-sans mb-3"
+        >
+          — Prologue —
+        </p>
+        <h2
+          class="couple-title font-serif text-[clamp(2.8rem,7vw,5.5rem)] leading-[1.05] text-[#1a1a1a]"
+        >
+          <em class="font-light italic">The Two</em>
+        </h2>
+        <p
+          class="couple-subtitle text-[10px] tracking-[0.45em] uppercase text-[#1a1a1a]/40 font-sans mt-3"
+        >
+          Who Found Each Other
+        </p>
+      </div>
+
+      <div
+        class="couple-grid relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] min-h-[85vh] items-stretch"
+      >
+        <!--Person 1 -->
+        <div
+          class="couple-person couple-person-left flex flex-col items-center justify-center px-8 md:px-16 py-16 md:py-20"
+        >
+          <!-- Photo Frame -->
+          <div class="couple-photo-wrap relative mb-8 md:mb-10">
+            <!-- Decorative corner frames -->
+            <span
+              class="corner corner-tl absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-[#1a1a1a]/20"
+            ></span>
+            <span
+              class="corner corner-tr absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-[#1a1a1a]/20"
+            ></span>
+            <span
+              class="corner corner-bl absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-[#1a1a1a]/20"
+            ></span>
+            <span
+              class="corner corner-br absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-[#1a1a1a]/20"
+            ></span>
+            <!-- Photo -->
+            <div
+              class="couple-photo relative w-[clamp(200px,28vw,340px)] aspect-[3/4] overflow-hidden"
+            >
+              <div class="couple-photo-inner w-full h-full bg-[#e8ddd0]">
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop"
+                  alt="Bride Photo"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Name & Info -->
+          <div class="couple-info text-center">
+            <p
+              class="text-[9px] tracking-[0.55em] uppercase text-[#1a1a1a]/30 font-sans mb-3"
+            >
+              She Is
+            </p>
+            <h3
+              class="couple-name font-serif text-[clamp(2rem,5vw,3.5rem)] leading-tight text-[#1a1a1a] mb-1"
+            >
+              Sarah
+            </h3>
+            <p
+              class="font-serif italic text-[clamp(1.1rem,2.5vw,1.6rem)] text-[#1a1a1a]/50 mb-5"
+            >
+              Anastasia
+            </p>
+            <div class="w-8 h-[1px] bg-[#1a1a1a]/25 mx-auto mb-5"></div>
+            <p
+              class="couple-desc text-[11px] md:text-xs leading-relaxed text-[#1a1a1a]/55 font-sans max-w-[220px] mx-auto tracking-wide"
+            >
+              Putri sulung dari<br />
+              Bapak &amp; Ibu Santoso.<br />
+              <span class="text-[#1a1a1a]/35 italic"
+                >A gentle soul full of grace.</span
+              >
+            </p>
+          </div>
+        </div>
+
+        <!-- Center Divider -->
+        <div
+          class="couple-center hidden md:flex flex-col items-center justify-center px-4 py-20 relative"
+        >
+          <div
+            class="couple-center-line w-[1px] flex-1 bg-gradient-to-b from-transparent via-[#1a1a1a]/15 to-transparent"
+          ></div>
+          <div class="couple-ampersand py-6">
+            <span
+              class="font-serif text-[clamp(3.5rem,6vw,5rem)] text-[#1a1a1a]/12 leading-none select-none"
+              >&amp;</span
+            >
+          </div>
+          <div
+            class="couple-center-line w-[1px] flex-1 bg-gradient-to-b from-transparent via-[#1a1a1a]/15 to-transparent"
+          ></div>
+          <!-- Caption stamp -->
+          <div class="absolute bottom-8 couple-date-stamp text-center">
+            <p
+              class="text-[8px] tracking-[0.3em] text-[#1a1a1a]/25 uppercase font-sans leading-relaxed"
+            >
+              Until the<br />End of Time
+            </p>
+          </div>
+        </div>
+
+        <!-- Person 2  -->
+        <div
+          class="couple-person couple-person-right flex flex-col items-center justify-center px-8 md:px-16 py-16 md:py-20"
+        >
+          <!-- Photo Frame -->
+          <div class="couple-photo-wrap relative mb-8 md:mb-10">
+            <!-- Decorative corner frames -->
+            <span
+              class="corner corner-tl absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-[#1a1a1a]/20"
+            ></span>
+            <span
+              class="corner corner-tr absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-[#1a1a1a]/20"
+            ></span>
+            <span
+              class="corner corner-bl absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-[#1a1a1a]/20"
+            ></span>
+            <span
+              class="corner corner-br absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-[#1a1a1a]/20"
+            ></span>
+            <!-- Photo -->
+            <div
+              class="couple-photo relative w-[clamp(200px,28vw,340px)] aspect-[3/4] overflow-hidden"
+            >
+              <div class="couple-photo-inner w-full h-full bg-[#2e3440]">
+                <img
+                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop"
+                  alt="Groom Photo"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Name & Info -->
+          <div class="couple-info text-center">
+            <p
+              class="text-[9px] tracking-[0.55em] uppercase text-[#1a1a1a]/30 font-sans mb-3"
+            >
+              He Is
+            </p>
+            <h3
+              class="couple-name font-serif text-[clamp(2rem,5vw,3.5rem)] leading-tight text-[#1a1a1a] mb-1"
+            >
+              David
+            </h3>
+            <p
+              class="font-serif italic text-[clamp(1.1rem,2.5vw,1.6rem)] text-[#1a1a1a]/50 mb-5"
+            >
+              Nathanael
+            </p>
+            <div class="w-8 h-[1px] bg-[#1a1a1a]/25 mx-auto mb-5"></div>
+            <p
+              class="couple-desc text-[11px] md:text-xs leading-relaxed text-[#1a1a1a]/55 font-sans max-w-[220px] mx-auto tracking-wide"
+            >
+              Putra bungsu dari<br />
+              Bapak &amp; Ibu Wijaya.<br />
+              <span class="text-[#1a1a1a]/35 italic"
+                >A steady heart, a quiet strength.</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile divider (visible only on mobile) -->
+      <div class="md:hidden flex items-center justify-center py-6 gap-4">
+        <div class="flex-1 h-[1px] bg-[#1a1a1a]/10 mx-8"></div>
+        <span class="font-serif text-4xl text-[#1a1a1a]/15">&amp;</span>
+        <div class="flex-1 h-[1px] bg-[#1a1a1a]/10 mx-8"></div>
+      </div>
+
+      <!-- Bottom magazine footer strip -->
+      <div
+        class="couple-footer relative z-10 border-t border-[#1a1a1a]/10 px-6 md:px-16 py-5 flex items-center justify-between"
+      >
+        <p
+          class="text-[8px] tracking-[0.5em] uppercase text-[#1a1a1a]/25 font-sans"
+        >
+          The Celebration of Love
+        </p>
+        <div class="flex gap-2 items-center">
+          <div class="w-4 h-[1px] bg-[#1a1a1a]/20"></div>
+          <p
+            class="text-[8px] tracking-[0.5em] uppercase text-[#1a1a1a]/25 font-sans"
+          >
+            Vol. I
+          </p>
+          <div class="w-4 h-[1px] bg-[#1a1a1a]/20"></div>
+        </div>
+        <p
+          class="text-[8px] tracking-[0.5em] uppercase text-[#1a1a1a]/25 font-sans"
+        >
+          25 . 12 . 2026
+        </p>
+      </div>
+    </section>
+
     <!-- Story Section -->
     <section
       id="story-section"
-      class="relative bg-white text-black py-20 min-h-screen hidden-initially"
+      class="relative text-black py-20 min-h-screen hidden-initially"
     >
       <div class="container mx-auto px-4">
         <h2
@@ -349,7 +575,7 @@
     <!-- Event Section -->
     <section
       id="events-section"
-      class="relative bg-white text-[#1a1a1a] py-24 min-h-screen flex items-center"
+      class="relative text-[#1a1a1a] py-24 min-h-screen flex items-center"
     >
       <div class="container mx-auto px-4 md:px-12 lg:px-24">
         <div

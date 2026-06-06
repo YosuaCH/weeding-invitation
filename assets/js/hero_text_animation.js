@@ -37,6 +37,13 @@ opentype.load(
     setTimeout(() => {
       document.body.classList.remove("overflow-hidden");
       document.body.style.overflow = "auto";
+
+      // Show couple section
+      const coupleSection = document.getElementById("couple-section");
+      if (coupleSection) {
+        coupleSection.classList.remove("hidden-initially");
+      }
+
       const eventsSection = document.getElementById("story-section");
       if (eventsSection) {
         eventsSection.classList.remove("hidden-initially");

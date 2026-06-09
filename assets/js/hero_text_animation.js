@@ -38,6 +38,11 @@ opentype.load(
       document.body.classList.remove("overflow-hidden");
       document.body.style.overflow = "auto";
 
+      const quoteSection = document.getElementById("quote-section");
+      if (quoteSection) {
+        quoteSection.classList.remove("hidden-initially");
+      }
+
       // Show couple section
       const coupleSection = document.getElementById("couple-section");
       if (coupleSection) {

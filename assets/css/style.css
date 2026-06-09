@@ -50,10 +50,6 @@ html.lenis body {
   }
 }
 
-/* ──────────────────────────────────────────────
-   Couple Section Styles
-────────────────────────────────────────────── */
-
 /* Photo zoom-in hover effect */
 .couple-photo {
   position: relative;
@@ -68,17 +64,21 @@ html.lenis body {
 
 /* Shimmer effect on photo placeholder */
 @keyframes couple-shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 .couple-photo-inner::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     110deg,
     transparent 30%,
-    rgba(255,255,255,0.07) 50%,
+    rgba(255, 255, 255, 0.07) 50%,
     transparent 70%
   );
   background-size: 200% 100%;
@@ -87,7 +87,10 @@ html.lenis body {
 
 /* Corner bracket animation */
 .corner {
-  transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+  transition:
+    width 0.6s ease,
+    height 0.6s ease,
+    opacity 0.6s ease;
   opacity: 0.5;
 }
 .couple-photo-wrap:hover .corner {
@@ -103,8 +106,6 @@ html.lenis body {
   width: 2.5rem;
   height: 2.5rem;
 }
-
-
 
 /* Scroll reveal initial states */
 .couple-reveal-left {
@@ -123,6 +124,3 @@ html.lenis body {
   opacity: 0;
   transform: scale(0.92);
 }
-
-/* Photo clip-path reveal — handled via GSAP on .couple-photo-inner */
-

@@ -28,20 +28,20 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.innerWidth >= 768) {
     gsap.registerPlugin(ScrollTrigger);
 
-    const eventRows = document.querySelectorAll(".event-row");
-    const eventInfoCard = document.getElementById("event-info-card");
-    const titleEl = document.getElementById("event-title");
-    const timeEl = document.getElementById("event-time");
-    const locationEl = document.getElementById("event-location");
-    const infoPin = document.getElementById("event-info-pin");
-    const scrollWrapper = document.querySelector(".events-scroll-wrapper");
+    const storyRows = document.querySelectorAll(".story-row");
+    const storyInfoCard = document.getElementById("story-info-card");
+    const titleEl = document.getElementById("story-title");
+    const timeEl = document.getElementById("story-time");
+    const locationEl = document.getElementById("story-location");
+    const infoPin = document.getElementById("story-info-pin");
+    const scrollWrapper = document.querySelector(".story-scroll-wrapper");
 
     // 2. GSAP Pinning for the central card
-    if (infoPin && scrollWrapper && eventRows.length > 0) {
+    if (infoPin && scrollWrapper && storyRows.length > 0) {
       ScrollTrigger.create({
         trigger: scrollWrapper,
         start: "top top",
-        endTrigger: eventRows[eventRows.length - 1],
+        endTrigger: storyRows[storyRows.length - 1],
         end: "top 4%",
         pin: infoPin,
         pinSpacing: false,
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 3. Smooth Scroll/Parallax for each row
-    eventRows.forEach((row, index) => {
+    storyRows.forEach((row, index) => {
       const leftImg = row.querySelector(".parallax-img-left");
       const rightImg = row.querySelector(".parallax-img-right");
 
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
           titleEl.innerText = title;
           timeEl.innerText = time;
           locationEl.innerText = location;
-          if (eventInfoCard) eventInfoCard.style.backgroundColor = bgColor;
+          if (storyInfoCard) storyInfoCard.style.backgroundColor = bgColor;
 
           gsap.to([titleEl, timeEl, locationEl], {
             opacity: 1,
@@ -123,15 +123,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Initial state
-    if (eventRows.length > 0 && titleEl) {
-      const firstRow = eventRows[0];
+    if (storyRows.length > 0 && titleEl) {
+      const firstRow = storyRows[0];
       const title = firstRow.getAttribute("data-title") || "";
       if (title) {
         titleEl.innerText = title;
         timeEl.innerText = firstRow.getAttribute("data-time") || "";
         locationEl.innerText = firstRow.getAttribute("data-location") || "";
-        if (eventInfoCard)
-          eventInfoCard.style.backgroundColor =
+        if (storyInfoCard)
+          storyInfoCard.style.backgroundColor =
             firstRow.getAttribute("data-bg-color") || "#f8f6f0";
       }
     }

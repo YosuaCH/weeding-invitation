@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <!-- Scripts -->
     <script src="assets/js/hero_text_animation.js" defer></script>
-    <script src="assets/js/events_animation.js" defer></script>
+    <script src="assets/js/story_animation.js" defer></script>
     <script src="assets/js/adaptif_text_animation.js" defer></script>
     <script src="assets/js/audio.js" defer></script>
     <script src="assets/js/couple_animation.js" defer></script>
@@ -36,22 +36,35 @@
       </div>
 
       <!-- Top Left: A Celebration of Love -->
-      <div class="absolute top-8 left-6 md:top-10 md:left-10 z-40 opacity-0 hero-corner">
-        <p class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-white/70 font-sans font-light leading-relaxed">
-          A Celebration<br/>Of Love
+      <div
+        class="absolute top-8 left-6 md:top-10 md:left-10 z-40 opacity-0 hero-corner"
+      >
+        <p
+          class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-white/70 font-sans font-light leading-relaxed"
+        >
+          A Celebration<br />Of Love
         </p>
       </div>
 
       <!-- Top Right: Now & Forever -->
-      <div class="absolute top-8 right-6 md:top-10 md:right-10 z-40 text-right opacity-0 hero-corner">
-        <p class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-white/70 font-sans font-light leading-relaxed">
-          Now &<br/>Forever
+      <div
+        class="absolute top-8 right-6 md:top-10 md:right-10 z-40 text-right opacity-0 hero-corner"
+      >
+        <p
+          class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-white/70 font-sans font-light leading-relaxed"
+        >
+          Now &<br />Forever
         </p>
       </div>
 
       <!-- Bottom Left: Unfold Our Story -->
-      <div class="absolute bottom-8 left-6 md:bottom-10 md:left-10 z-40 flex flex-col items-center gap-4 opacity-0 hero-corner">
-        <p class="text-[8px] md:text-[9px] tracking-[0.4em] uppercase text-white/70 font-sans font-light" style="writing-mode: vertical-rl; transform: rotate(180deg);">
+      <div
+        class="absolute bottom-8 left-6 md:bottom-10 md:left-10 z-40 flex flex-col items-center gap-4 opacity-0 hero-corner"
+      >
+        <p
+          class="text-[8px] md:text-[9px] tracking-[0.4em] uppercase text-white/70 font-sans font-light"
+          style="writing-mode: vertical-rl; transform: rotate(180deg)"
+        >
           UNFOLD OUR STORY
         </p>
         <div class="w-[1px] h-12 md:h-16 bg-white/40"></div>
@@ -458,10 +471,10 @@
         </div>
 
         <!-- Desktop Layout (Pinned Scroll) -->
-        <div class="hidden md:block relative w-full events-scroll-wrapper">
+        <div class="hidden md:block relative w-full story-scroll-wrapper">
           <!-- Info Container (Pinned via GSAP) -->
           <div
-            id="event-info-pin"
+            id="story-info-pin"
             class="absolute top-0 left-0 w-full h-screen pointer-events-none z-30 pt-[4vh]"
           >
             <div
@@ -474,17 +487,17 @@
               <div class="flex items-center justify-center pointer-events-auto">
                 <!-- Info Card -->
                 <div
-                  class="bg-[#f8f6f0] p-10 w-full aspect-[3/4] flex flex-col items-center justify-center text-center border border-neutral-200 shadow-xl transition-colors duration-500"
-                  id="event-info-card"
+                  class="bg-[#f8f6f0] p-6 lg:p-10 w-full aspect-[3/4] flex flex-col items-center justify-center text-center border border-neutral-200 shadow-xl transition-colors duration-500"
+                  id="story-info-card"
                 >
-                  <h3 id="event-title" class="text-3xl font-serif mb-4"></h3>
+                  <h3 id="story-title" class="text-2xl lg:text-3xl xl:text-4xl font-serif mb-3 lg:mb-4"></h3>
                   <p
-                    id="event-time"
-                    class="text-sm tracking-widest mb-2 text-neutral-500"
+                    id="story-time"
+                    class="text-[10px] lg:text-sm tracking-widest mb-2 text-neutral-500"
                   ></p>
                   <p
-                    id="event-location"
-                    class="text-sm font-light text-neutral-600"
+                    id="story-location"
+                    class="text-xs lg:text-sm font-light text-neutral-600"
                   ></p>
                 </div>
               </div>
@@ -499,7 +512,7 @@
           >
             <!-- Row 1 -->
             <div
-              class="event-row grid grid-cols-3 gap-4 items-center w-full mb-8"
+              class="story-row grid grid-cols-3 gap-4 items-center w-full mb-8"
               data-bg-color="#f8f6f0"
             >
               <!-- Left Image -->
@@ -540,7 +553,7 @@
 
             <!-- Row 2 -->
             <div
-              class="event-row grid grid-cols-3 gap-4 items-center w-full mb-8"
+              class="story-row grid grid-cols-3 gap-4 items-center w-full mb-8"
               data-bg-color="#f0f2f5"
             >
               <!-- Left Image  -->
@@ -581,7 +594,7 @@
 
             <!-- Row 3 -->
             <div
-              class="event-row grid grid-cols-3 gap-4 items-center w-full mb-8"
+              class="story-row grid grid-cols-3 gap-4 items-center w-full mb-8"
               data-bg-color="#e8e9eb"
             >
               <!-- Left Image  -->

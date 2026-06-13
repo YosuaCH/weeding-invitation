@@ -78,7 +78,8 @@ opentype.load(
         "-=22",
       )
       .to("#line", { width: 200, duration: 0.9, ease: "power2.out" }, "-=21.5")
-      .to("#date", { opacity: 1, duration: 1 }, "<");
+      .to("#date", { opacity: 1, duration: 1 }, "<")
+      .to(".hero-corner", { opacity: 1, duration: 1.5, ease: "power2.out" }, "<");
 
     if (window.initScrollAnimations) {
       window.initScrollAnimations();

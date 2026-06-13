@@ -22,6 +22,7 @@
     <script src="assets/js/audio.js" defer></script>
     <script src="assets/js/couple_animation.js" defer></script>
     <script src="assets/js/quote_animation.js" defer></script>
+    <script src="assets/js/gallery_animation.js" defer></script>
   </head>
   <body class="bg-[#f9f6f1] text-white font-sans overflow-hidden">
     <!-- Hero Section -->
@@ -490,7 +491,10 @@
                   class="bg-[#f8f6f0] p-6 lg:p-10 w-full aspect-[3/4] flex flex-col items-center justify-center text-center border border-neutral-200 shadow-xl transition-colors duration-500"
                   id="story-info-card"
                 >
-                  <h3 id="story-title" class="text-2xl lg:text-3xl xl:text-4xl font-serif mb-3 lg:mb-4"></h3>
+                  <h3
+                    id="story-title"
+                    class="text-2xl lg:text-3xl xl:text-4xl font-serif mb-3 lg:mb-4"
+                  ></h3>
                   <p
                     id="story-time"
                     class="text-[10px] lg:text-sm tracking-widest mb-2 text-neutral-500"
@@ -709,6 +713,193 @@
                   >Insert Photo</span
                 >
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section
+      id="gallery-section"
+      class="relative bg-[#f9f6f1] text-[#1a1a1a] h-screen overflow-hidden hidden-initially"
+    >
+      <div
+        class="horizontal-track flex h-full items-center px-[10vw] w-max gap-16 md:gap-32"
+      >
+        <!-- Intro Column -->
+        <div
+          class="horizontal-grid-col flex flex-col justify-center shrink-0 w-[70vw] md:w-[35vw] mr-10 md:mr-20"
+        >
+          <div class="border-l-2 border-[#1a1a1a]/20 pl-4 mb-8">
+            <span
+              class="text-[10px] tracking-[0.5em] uppercase text-[#1a1a1a]/40 block mb-1 font-sans"
+              >Chapter III</span
+            >
+            <span
+              class="text-sm tracking-[0.25em] uppercase text-[#1a1a1a]/70 block font-sans font-medium"
+              >The Gallery</span
+            >
+          </div>
+          <h2 class="text-5xl md:text-7xl font-serif leading-[1.1] mb-8">
+            Cherished <br /><i class="font-light">Moments</i>
+          </h2>
+          <p
+            class="text-sm md:text-base leading-relaxed text-[#1a1a1a]/70 max-w-sm"
+          >
+            A glimpse into our journey, the laughter we shared, and the quiet
+            moments that brought us here today.
+          </p>
+        </div>
+
+        <!-- Column 1 -->
+        <div class="horizontal-grid-col flex flex-col shrink-0 mt-20 md:mt-32">
+          <div class="horizontal-item-w relative w-[280px] md:w-[400px]">
+            <div class="eyebrow-w mb-3 md:mb-5">
+              <div
+                class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-[#1a1a1a]/50 font-sans font-medium"
+              >
+                Jakarta, 2026
+              </div>
+            </div>
+            <div
+              class="horizontal-item-img-w w-full aspect-[4/5] overflow-hidden bg-[#e6e2dd]"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop"
+                class="w-full h-full object-cover gallery-img"
+                alt="Pre-wedding"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="horizontal-grid-col flex flex-col shrink-0 mb-32 md:mb-48">
+          <div class="horizontal-item-w relative w-[300px] md:w-[500px]">
+            <div class="eyebrow-w mb-3 md:mb-5">
+              <div
+                class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-[#1a1a1a]/50 font-sans font-medium"
+              >
+                The Proposal, 2024
+              </div>
+            </div>
+            <div
+              class="horizontal-item-img-w w-full aspect-[3/4] overflow-hidden bg-[#d5cfc7]"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800&auto=format&fit=crop"
+                class="w-full h-full object-cover gallery-img"
+                alt="Proposal"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3  -->
+        <div
+          class="horizontal-grid-col flex flex-col justify-between h-[80vh] shrink-0"
+        >
+          <div class="horizontal-item-w relative w-[320px] md:w-[550px] mt-10">
+            <div
+              class="text-3xl md:text-5xl font-serif leading-[1.1] text-[#1a1a1a]"
+            >
+              It doesn't matter <span class="italic font-light">where</span> you
+              start, it's <span class="italic font-light">how</span> you
+              progress from there.
+            </div>
+            <div
+              class="mt-8 text-[9px] md:text-[10px] tracking-widest uppercase text-[#1a1a1a]/40 font-sans"
+            >
+              David & Sarah
+            </div>
+          </div>
+          <div
+            class="horizontal-item-w relative w-[250px] md:w-[350px] self-end mb-10"
+          >
+            <div class="eyebrow-w mb-3 md:mb-5">
+              <div
+                class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-[#1a1a1a]/50 font-sans font-medium"
+              >
+                Jakarta, 2026
+              </div>
+            </div>
+            <div
+              class="horizontal-item-img-w w-full aspect-[4/5] overflow-hidden bg-[#3a444d]"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800&auto=format&fit=crop"
+                class="w-full h-full object-cover gallery-img"
+                alt="Engagement"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="horizontal-grid-col flex flex-col shrink-0 mt-32 md:mt-48">
+          <div class="horizontal-item-w relative w-[280px] md:w-[420px]">
+            <div class="eyebrow-w mb-3 md:mb-5">
+              <div
+                class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-[#1a1a1a]/50 font-sans font-medium"
+              >
+                Kyoto, 2025
+              </div>
+            </div>
+            <div
+              class="horizontal-item-img-w w-full aspect-[3/4] overflow-hidden bg-[#2d3a3a]"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=800&auto=format&fit=crop"
+                class="w-full h-full object-cover gallery-img"
+                alt="Holiday"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 5 -->
+        <div class="horizontal-grid-col flex flex-col shrink-0 mb-20 md:mb-32">
+          <div class="horizontal-item-w relative w-[320px] md:w-[480px]">
+            <div class="eyebrow-w mb-3 md:mb-5">
+              <div
+                class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-[#1a1a1a]/50 font-sans font-medium"
+              >
+                A Walk to Remember
+              </div>
+            </div>
+            <div
+              class="horizontal-item-img-w w-full aspect-[4/5] overflow-hidden bg-[#1f2929]"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop"
+                class="w-full h-full object-cover gallery-img"
+                alt="Walking together"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 6 -->
+        <div
+          class="horizontal-grid-col flex flex-col justify-center h-[80vh] shrink-0 mt-20"
+        >
+          <div class="horizontal-item-w relative w-[280px] md:w-[450px]">
+            <div class="eyebrow-w mb-3 md:mb-5">
+              <div
+                class="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-[#1a1a1a]/50 font-sans font-medium"
+              >
+                Forever Starts Here
+              </div>
+            </div>
+            <div
+              class="horizontal-item-img-w w-full aspect-[4/3] overflow-hidden bg-[#e6e2dd]"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop"
+                class="w-full h-full object-cover gallery-img"
+                alt="Forever"
+              />
             </div>
           </div>
         </div>

@@ -60,7 +60,14 @@ opentype.load(
           },
         });
       }
+
+      if (window.initScrollAnimations) {
+        window.initScrollAnimations();
+      }
     }, 0);
+
+    // Animasi sudut secara langsung tanpa menunggu timeline utama
+    gsap.to(".hero-corner", { opacity: 1, duration: 1.5, ease: "power2.out", delay: 0.5 });
 
     tl.to("#sub-title", { opacity: 1, duration: 1, ease: "power2.out" })
       .to("#name-wrapper", { opacity: 1, duration: 0 })
@@ -78,12 +85,7 @@ opentype.load(
         "-=22",
       )
       .to("#line", { width: 200, duration: 0.9, ease: "power2.out" }, "-=21.5")
-      .to("#date", { opacity: 1, duration: 1 }, "<")
-      .to(".hero-corner", { opacity: 1, duration: 1.5, ease: "power2.out" }, "<");
-
-    if (window.initScrollAnimations) {
-      window.initScrollAnimations();
-    }
+      .to("#date", { opacity: 1, duration: 1 }, "<");
 
     setTimeout(() => {
       ScrollTrigger.refresh();

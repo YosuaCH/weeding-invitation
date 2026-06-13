@@ -16,7 +16,7 @@ window.initScrollAnimations = function () {
 
   const colorTl = gsap.timeline({
     scrollTrigger: {
-      trigger: "#couple-section",
+      trigger: "#quote-section",
       start: "top 100px",
       end: "top 30px",
       scrub: true,
@@ -88,16 +88,11 @@ window.initScrollAnimations = function () {
   }
 
   // Berubah gelap saat masuk ke area konten putih
-  const lightSections = ["#couple-section", "#story-section"];
-  lightSections.forEach((selector) => {
-    const el = document.querySelector(selector);
-    if (!el) return;
-    ScrollTrigger.create({
-      trigger: el,
-      start: "top 90%",
-      onEnter: setAudioDark,
-      onLeaveBack: setAudioLight,
-    });
+  ScrollTrigger.create({
+    trigger: "#quote-section",
+    start: "top 95%",
+    onEnter: setAudioDark,
+    onLeaveBack: setAudioLight,
   });
 
   // Berubah kembali terang HANYA saat menutupi gambar gelap

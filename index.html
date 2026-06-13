@@ -407,22 +407,26 @@
               <div
                 class="absolute inset-0 bg-[#e6e2dd] flex items-center justify-center transition-opacity duration-500"
               >
-                <span class="text-neutral-400 font-serif italic text-xl"
-                  >Holy Matrimony Photo</span
-                >
+                <img
+                  src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop"
+                  class="w-full h-full object-cover"
+                  alt="First Meeting"
+                />
               </div>
               <div
                 class="absolute inset-0 bg-[#d5cfc7] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               >
-                <span class="text-neutral-500 font-serif italic text-xl"
-                  >Alternate Photo</span
-                >
+                <img
+                  src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=800&auto=format&fit=crop"
+                  class="w-full h-full object-cover"
+                  alt="Memories"
+                />
               </div>
             </div>
             <div class="text-center">
-              <h3 class="text-2xl font-serif mb-2"></h3>
-              <p class="text-sm text-neutral-600 mb-1"></p>
-              <p class="text-sm text-neutral-600"></p>
+              <h3 class="text-2xl font-serif mb-2">First Meeting</h3>
+              <p class="text-sm text-neutral-600 mb-1">2018</p>
+              <p class="text-sm text-neutral-600">Jakarta, Indonesia</p>
             </div>
           </article>
 
@@ -435,18 +439,26 @@
               <div
                 class="absolute inset-0 bg-[#3a444d] flex items-center justify-center transition-opacity duration-500"
               >
-                <span class="text-neutral-300 font-serif italic text-xl"></span>
+                <img
+                  src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop"
+                  class="w-full h-full object-cover"
+                  alt="Journey"
+                />
               </div>
               <div
                 class="absolute inset-0 bg-[#2a3239] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               >
-                <span class="text-neutral-400 font-serif italic text-xl"></span>
+                <img
+                  src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop"
+                  class="w-full h-full object-cover"
+                  alt="Adventures"
+                />
               </div>
             </div>
             <div class="text-center">
-              <h3 class="text-2xl font-serif mb-2"></h3>
-              <p class="text-sm text-neutral-600 mb-1"></p>
-              <p class="text-sm text-neutral-600"></p>
+              <h3 class="text-2xl font-serif mb-2">The Journey</h3>
+              <p class="text-sm text-neutral-600 mb-1">2020</p>
+              <p class="text-sm text-neutral-600">Bali, Indonesia</p>
             </div>
           </article>
 
@@ -459,15 +471,27 @@
               <div
                 class="absolute inset-0 bg-[#2d3a3a] flex items-center justify-center transition-opacity duration-500"
               >
-                <span class="text-neutral-300 font-serif italic text-xl"></span>
+                <img
+                  src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=800&auto=format&fit=crop"
+                  class="w-full h-full object-cover"
+                  alt="Proposal"
+                />
               </div>
               <div
                 class="absolute inset-0 bg-[#1f2929] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               >
-                <span class="text-neutral-400 font-serif italic text-xl"></span>
+                <img
+                  src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800&auto=format&fit=crop"
+                  class="w-full h-full object-cover"
+                  alt="Yes"
+                />
               </div>
             </div>
-            <div class="text-center"></div>
+            <div class="text-center">
+              <h3 class="text-2xl font-serif mb-2">The Proposal</h3>
+              <p class="text-sm text-neutral-600 mb-1">2024</p>
+              <p class="text-sm text-neutral-600">Kyoto, Japan</p>
+            </div>
           </article>
         </div>
 
@@ -485,24 +509,39 @@
               <div></div>
 
               <!-- Center Col (Pinned Text) -->
-              <div class="flex items-center justify-center pointer-events-auto">
-                <!-- Info Card -->
+              <div
+                class="flex items-center justify-center pointer-events-auto w-full h-full relative"
+              >
+                <!-- Info Card Container -->
                 <div
-                  class="bg-[#f8f6f0] p-6 lg:p-10 w-full aspect-[3/4] flex flex-col items-center justify-center text-center border border-neutral-200 shadow-xl transition-colors duration-500"
+                  class="bg-[#f8f6f0] p-6 lg:p-10 w-full aspect-[3/4] flex flex-col items-center justify-center text-center border border-neutral-200 shadow-xl relative overflow-hidden"
                   id="story-info-card"
                 >
-                  <h3
-                    id="story-title"
-                    class="text-2xl lg:text-3xl xl:text-4xl font-serif mb-3 lg:mb-4"
-                  ></h3>
-                  <p
-                    id="story-time"
-                    class="text-[10px] lg:text-sm tracking-widest mb-2 text-neutral-500"
-                  ></p>
-                  <p
-                    id="story-location"
-                    class="text-xs lg:text-sm font-light text-neutral-600"
-                  ></p>
+                  <!-- Sequential Text -->
+                  <div
+                    class="flex flex-col items-center justify-center text-center gap-6 px-4 z-10 w-full h-full relative"
+                  >
+                    <p
+                      class="story-step text-[9px] md:text-xs tracking-[0.4em] uppercase text-[#1a1a1a]/40 font-sans font-medium opacity-0 translate-y-10 absolute"
+                    >
+                      Two hearts, one journey
+                    </p>
+                    <h3
+                      class="story-step text-2xl md:text-4xl lg:text-5xl font-serif text-[#1a1a1a] opacity-0 translate-y-10 absolute"
+                    >
+                      A fleeting glance...
+                    </h3>
+                    <h3
+                      class="story-step text-2xl md:text-4xl lg:text-5xl font-serif text-[#1a1a1a] opacity-0 translate-y-10 absolute"
+                    >
+                      Became an endless promise
+                    </h3>
+                    <h3
+                      class="story-step text-2xl md:text-4xl lg:text-5xl font-serif text-[#1a1a1a] opacity-0 translate-y-10 absolute"
+                    >
+                      To walk together, forever
+                    </h3>
+                  </div>
                 </div>
               </div>
               <!-- Empty Left Col -->
@@ -517,7 +556,6 @@
             <!-- Row 1 -->
             <div
               class="story-row grid grid-cols-3 gap-4 items-center w-full mb-8"
-              data-bg-color="#f8f6f0"
             >
               <!-- Left Image -->
               <div class="col-span-1">
@@ -527,10 +565,11 @@
                   <div
                     class="parallax-img-left absolute inset-[-15%_0] bg-[#e6e2dd] flex items-center justify-center transition-opacity duration-700"
                   >
-                    <span
-                      class="text-neutral-400 font-serif italic text-sm text-center px-4"
-                      >Memories of Grace</span
-                    >
+                    <img
+                      src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop"
+                      class="w-full h-full object-cover"
+                      alt="First Meeting"
+                    />
                   </div>
                 </div>
               </div>
@@ -546,10 +585,11 @@
                   <div
                     class="parallax-img-right absolute inset-[-15%_0] bg-[#d5cfc7] flex items-center justify-center transition-opacity duration-700"
                   >
-                    <span
-                      class="text-neutral-500 font-serif italic text-lg text-center px-4"
-                      >Sacred Vows</span
-                    >
+                    <img
+                      src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=800&auto=format&fit=crop"
+                      class="w-full h-full object-cover"
+                      alt="Memories"
+                    />
                   </div>
                 </div>
               </div>
@@ -558,7 +598,6 @@
             <!-- Row 2 -->
             <div
               class="story-row grid grid-cols-3 gap-4 items-center w-full mb-8"
-              data-bg-color="#f0f2f5"
             >
               <!-- Left Image  -->
               <div class="col-span-1">
@@ -568,10 +607,11 @@
                   <div
                     class="parallax-img-left absolute inset-[-15%_0] bg-[#3a444d] flex items-center justify-center transition-opacity duration-700"
                   >
-                    <span
-                      class="text-neutral-300 font-serif italic text-sm text-center px-4"
-                      >Grand Celebration</span
-                    >
+                    <img
+                      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop"
+                      class="w-full h-full object-cover"
+                      alt="Journey"
+                    />
                   </div>
                 </div>
               </div>
@@ -587,10 +627,11 @@
                   <div
                     class="parallax-img-right absolute inset-[-15%_0] bg-[#2a3239] flex items-center justify-center transition-opacity duration-700"
                   >
-                    <span
-                      class="text-neutral-400 font-serif italic text-lg text-center px-4"
-                      >Dancing Hearts</span
-                    >
+                    <img
+                      src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop"
+                      class="w-full h-full object-cover"
+                      alt="Adventures"
+                    />
                   </div>
                 </div>
               </div>
@@ -599,7 +640,6 @@
             <!-- Row 3 -->
             <div
               class="story-row grid grid-cols-3 gap-4 items-center w-full mb-8"
-              data-bg-color="#e8e9eb"
             >
               <!-- Left Image  -->
               <div class="col-span-1">
@@ -609,10 +649,11 @@
                   <div
                     class="parallax-img-left absolute inset-[-15%_0] bg-[#2d3a3a] flex items-center justify-center transition-opacity duration-700"
                   >
-                    <span
-                      class="text-neutral-300 font-serif italic text-sm text-center px-4"
-                      >Moonlight Toast</span
-                    >
+                    <img
+                      src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=800&auto=format&fit=crop"
+                      class="w-full h-full object-cover"
+                      alt="Proposal"
+                    />
                   </div>
                 </div>
               </div>
@@ -628,10 +669,11 @@
                   <div
                     class="parallax-img-right absolute inset-[-15%_0] bg-[#1f2929] flex items-center justify-center transition-opacity duration-700"
                   >
-                    <span
-                      class="text-neutral-400 font-serif italic text-lg text-center px-4"
-                      >Eternal Love</span
-                    >
+                    <img
+                      src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800&auto=format&fit=crop"
+                      class="w-full h-full object-cover"
+                      alt="Yes"
+                    />
                   </div>
                 </div>
               </div>

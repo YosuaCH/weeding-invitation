@@ -29,10 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
 
     const storyRows = document.querySelectorAll(".story-row");
-    const storyInfoCard = document.getElementById("story-info-card");
-    const titleEl = document.getElementById("story-title");
-    const timeEl = document.getElementById("story-time");
-    const locationEl = document.getElementById("story-location");
     const infoPin = document.getElementById("story-info-pin");
     const scrollWrapper = document.querySelector(".story-scroll-wrapper");
 
@@ -55,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (leftImg) {
         gsap.to(leftImg, {
-          yPercent: index % 2 === 0 ? 25 : -25,
+          yPercent: index % 2 === 0 ? 10 : -10,
           ease: "none",
           scrollTrigger: {
             trigger: row,
@@ -68,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (rightImg) {
         gsap.to(rightImg, {
-          yPercent: index % 2 === 0 ? -25 : 25,
+          yPercent: index % 2 === 0 ? -10 : 10,
           ease: "none",
           scrollTrigger: {
             trigger: row,
@@ -78,62 +74,33 @@ document.addEventListener("DOMContentLoaded", () => {
           },
         });
       }
-
-      // Update Card Info when row is in center
-      ScrollTrigger.create({
-        trigger: row,
-        start: "top center+=20%",
-        end: "bottom center-=20%",
-        onEnter: () => updateCardInfo(row),
-        onEnterBack: () => updateCardInfo(row),
-      });
     });
 
-    function updateCardInfo(row) {
-      if (!titleEl || !timeEl || !locationEl) return;
+    const storySteps = document.querySelectorAll(".story-step");
+    if (storySteps.length > 0 && scrollWrapper) {
+      gsap.set(storySteps, { opacity: 0, y: 20 });
 
-      const title = row.getAttribute("data-title") || "";
-      const time = row.getAttribute("data-time") || "";
-      const location = row.getAttribute("data-location") || "";
-      const bgColor = row.getAttribute("data-bg-color") || "#f8f6f0";
-
-      // Only update if there's actual data, otherwise keep current
-      if (!title && !time && !location) return;
-
-      gsap.to([titleEl, timeEl, locationEl], {
-        opacity: 0,
-        y: 10,
-        duration: 0.3,
-        ease: "power2.in",
-        onComplete: () => {
-          titleEl.innerText = title;
-          timeEl.innerText = time;
-          locationEl.innerText = location;
-          if (storyInfoCard) storyInfoCard.style.backgroundColor = bgColor;
-
-          gsap.to([titleEl, timeEl, locationEl], {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            stagger: 0.1,
-            ease: "power2.out",
-          });
+      const stepTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: scrollWrapper,
+          start: "top top",
+          endTrigger: storyRows[storyRows.length - 1],
+          end: "top 4%",
+          scrub: 1,
         },
       });
-    }
 
-    // Initial state
-    if (storyRows.length > 0 && titleEl) {
-      const firstRow = storyRows[0];
-      const title = firstRow.getAttribute("data-title") || "";
-      if (title) {
-        titleEl.innerText = title;
-        timeEl.innerText = firstRow.getAttribute("data-time") || "";
-        locationEl.innerText = firstRow.getAttribute("data-location") || "";
-        if (storyInfoCard)
-          storyInfoCard.style.backgroundColor =
-            firstRow.getAttribute("data-bg-color") || "#f8f6f0";
+      stepTl.to(storySteps[0], { opacity: 1, y: 0, duration: 1 });
+
+      for (let i = 1; i < storySteps.length; i++) {
+        stepTl.to(
+          storySteps[i - 1],
+          { opacity: 0, y: -20, duration: 1 },
+          "+=1",
+        );
+        stepTl.to(storySteps[i], { opacity: 1, y: 0, duration: 1 }, "-=0.5");
       }
+      stepTl.to({}, { duration: 1 });
     }
   }
 });

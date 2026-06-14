@@ -124,3 +124,22 @@ html.lenis body {
   opacity: 0;
   transform: scale(0.92);
 }
+
+/* Vertical Marquee Animation */
+@keyframes scroll-y {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-marquee-y {
+  animation: scroll-y 30s linear infinite;
+  will-change: transform;
+}
+
+.pause-on-hover:hover .animate-marquee-y {
+  animation-play-state: paused;
+}

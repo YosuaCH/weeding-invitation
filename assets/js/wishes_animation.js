@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const wishesSection = document.getElementById("wishes-section");
     if (!wishesSection) return;
 
-    // 1. Scroll Animations
+    // Scroll Animations
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: wishesSection,
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tl.fromTo(
         formContainer,
         { opacity: 0, x: -30 },
-        { opacity: 1, x: 0, duration: 1, ease: "power3.out" }
+        { opacity: 1, x: 0, duration: 1, ease: "power3.out" },
       );
     }
 
@@ -33,11 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
         wishCards,
         { opacity: 0, y: 40 },
         { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out" },
-        "-=0.5"
+        "-=0.5",
       );
     }
 
-    // 2. Form Submission Logic
+    // Form Submission Logic
     const form = document.getElementById("wishes-form");
     const wishesList = document.getElementById("wishes-list");
 
@@ -54,8 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (name && wish) {
           // Create new wish card
           const newCard = document.createElement("div");
-          newCard.className = "wish-card flex flex-col border-t border-[#f9f6f1]/20 pt-8";
-          
+          newCard.className =
+            "wish-card flex flex-col border-t border-[#f9f6f1]/20 pt-8";
+
           newCard.innerHTML = `
             <span class="font-serif text-6xl text-[#f9f6f1]/20 leading-none h-8">&ldquo;</span>
             <p class="font-serif text-xl md:text-2xl text-[#f9f6f1] leading-relaxed mb-6 mt-4">
@@ -74,7 +75,13 @@ document.addEventListener("DOMContentLoaded", () => {
           gsap.fromTo(
             newCard,
             { opacity: 0, height: 0, y: -20 },
-            { opacity: 1, height: "auto", y: 0, duration: 0.8, ease: "power3.out" }
+            {
+              opacity: 1,
+              height: "auto",
+              y: 0,
+              duration: 0.8,
+              ease: "power3.out",
+            },
           );
 
           // Reset form
@@ -85,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const originalText = btn.innerText;
           btn.innerText = "Letter Published!";
           btn.classList.add("bg-green-500", "text-white");
-          
+
           setTimeout(() => {
             btn.innerText = originalText;
             btn.classList.remove("bg-green-500", "text-white");

@@ -131,15 +131,30 @@ window.initScrollAnimations = function () {
 
   // Berubah kembali terang HANYA saat menutupi gambar gelap
   const darkSections = document.querySelectorAll(".dark-section-trigger");
+  
+  let darkSectionsCount = 0;
+  
   darkSections.forEach((section) => {
     ScrollTrigger.create({
       trigger: section,
       start: "top 95%",
       end: "bottom 80%",
-      onEnter: setAudioLight,
-      onLeave: setAudioDark,
-      onEnterBack: setAudioLight,
-      onLeaveBack: setAudioDark,
+      onEnter: () => {
+        darkSectionsCount++;
+        if (darkSectionsCount === 1) setAudioLight();
+      },
+      onLeave: () => {
+        darkSectionsCount--;
+        if (darkSectionsCount === 0) setAudioDark();
+      },
+      onEnterBack: () => {
+        darkSectionsCount++;
+        if (darkSectionsCount === 1) setAudioLight();
+      },
+      onLeaveBack: () => {
+        darkSectionsCount--;
+        if (darkSectionsCount === 0) setAudioDark();
+      },
     });
   });
 

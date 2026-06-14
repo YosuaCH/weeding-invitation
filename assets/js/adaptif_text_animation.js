@@ -48,6 +48,40 @@ window.initScrollAnimations = function () {
       0,
     );
 
+  const wishesColorTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#wishes-section",
+      start: "top 100px",
+      end: "top 30px",
+      scrub: true,
+    },
+  });
+
+  wishesColorTl
+    .fromTo(
+      "#name path",
+      { fill: "#1a1a1a", stroke: "#1a1a1a" },
+      {
+        fill: "rgba(255,255,255,1)",
+        stroke: "rgba(255,255,255,1)",
+        ease: "none",
+        immediateRender: false,
+      },
+      0,
+    )
+    .fromTo(
+      ["#sub-title", "#date"],
+      { color: "#1a1a1a" },
+      { color: "rgba(255,255,255,1)", ease: "none", immediateRender: false },
+      0,
+    )
+    .fromTo(
+      "#line",
+      { backgroundColor: "#1a1a1a" },
+      { backgroundColor: "rgba(255,255,255,1)", ease: "none", immediateRender: false },
+      0,
+    );
+
   // --- Audio Button Color Animation ---
   function setAudioDark() {
     gsap.to(["#music_label", ".vinyl-icon"], {

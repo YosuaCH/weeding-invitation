@@ -87,6 +87,12 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => {
       btn.disabled = true;
 
+      // Play audio
+      const musicToggle = document.getElementById("music_toggle");
+      if (musicToggle && !musicToggle.classList.contains("playing")) {
+        musicToggle.click();
+      }
+
       const exitTl = gsap.timeline({
         onComplete: () => {
           overlay.style.display = "none";

@@ -39,9 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Form Submission Logic
     const form = document.getElementById("wishes-form");
-    const wishesList = document.getElementById("wishes-list");
+    const wishesLists = document.querySelectorAll(
+      ".wishes-list-original, .wishes-list-duplicate",
+    );
 
-    if (form && wishesList) {
+    if (form && wishesLists.length > 0) {
       form.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -68,21 +70,22 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
           `;
 
-          // Prepend to list
-          wishesList.insertBefore(newCard, wishesList.firstChild);
+          wishesLists.forEach((list) => {
+            const cardClone = newCard.cloneNode(true);
+            list.insertBefore(cardClone, list.firstChild);
 
-          // Animate the new card
-          gsap.fromTo(
-            newCard,
-            { opacity: 0, height: 0, y: -20 },
-            {
-              opacity: 1,
-              height: "auto",
-              y: 0,
-              duration: 0.8,
-              ease: "power3.out",
-            },
-          );
+            gsap.fromTo(
+              cardClone,
+              { opacity: 0, height: 0, y: -20 },
+              {
+                opacity: 1,
+                height: "auto",
+                y: 0,
+                duration: 0.8,
+                ease: "power3.out",
+              },
+            );
+          });
 
           // Reset form
           form.reset();

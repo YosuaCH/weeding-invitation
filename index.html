@@ -30,12 +30,12 @@
   <body class="bg-[#f9f6f1] text-white font-sans overflow-hidden">
     <div
       id="cover-overlay"
-      class="fixed inset-0 z-[9999] flex items-stretch overflow-hidden"
+      class="fixed inset-0 z-[9999] flex flex-col md:flex-row items-stretch overflow-hidden"
       style="background: #f2ede6"
     >
       <!-- Left Panel: Text Content -->
       <div
-        class="relative flex flex-col justify-between w-full md:w-1/2 px-8 md:px-16 py-12 z-10"
+        class="relative flex flex-col justify-between w-full md:w-1/2 h-[55%] md:h-full px-8 md:px-16 py-8 md:py-12 z-10"
       >
         <!-- Top: Logo / Date -->
         <div class="flex items-center justify-between">
@@ -122,11 +122,11 @@
         </div>
       </div>
 
-      <!-- Right Panel: Decorative Image (hidden on mobile) -->
-      <div class="hidden md:block relative w-1/2 overflow-hidden">
-        <!-- Vertical decorative line -->
+      <!-- Right Panel: Decorative Image -->
+      <div class="relative w-full md:w-1/2 h-[45%] md:h-full overflow-hidden">
+        <!-- Decorative line (horizontal on mobile, vertical on md) -->
         <div
-          class="absolute left-0 top-0 bottom-0 w-[1px] bg-[#1a1a1a]/10 z-10"
+          class="absolute left-0 top-0 w-full h-[1px] md:w-[1px] md:h-full bg-[#1a1a1a]/10 z-10"
         ></div>
 
         <!-- Main image fills the panel -->
@@ -149,7 +149,7 @@
 
         <!-- Floating small caption bottom-right -->
         <div
-          class="absolute bottom-12 right-12 z-20 text-right opacity-0"
+          class="absolute bottom-6 right-6 md:bottom-12 md:right-12 z-20 text-right opacity-0"
           id="cover-caption"
         >
           <p

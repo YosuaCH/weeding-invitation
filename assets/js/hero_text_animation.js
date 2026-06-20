@@ -31,12 +31,16 @@ opentype.load(
       strokeDasharray: L,
       strokeDashoffset: L,
     });
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({ paused: true });
+    window.heroAnimationTl = tl;
 
-    // Unlock scrolling
     setTimeout(() => {
-      document.body.classList.remove("overflow-hidden");
-      document.body.style.overflow = "auto";
+      const cover = document.getElementById("cover-overlay");
+      const coverVisible = cover && cover.style.display !== "none";
+      if (!coverVisible) {
+        document.body.classList.remove("overflow-hidden");
+        document.body.style.overflow = "auto";
+      }
 
       const quoteSection = document.getElementById("quote-section");
       if (quoteSection) {
@@ -66,16 +70,27 @@ opentype.load(
       }
     }, 0);
 
-    // Animasi sudut secara langsung tanpa menunggu timeline utama
-    gsap.to(".hero-corner", { opacity: 1, duration: 1.5, ease: "power2.out", delay: 0.5 });
+    tl.to(
+      ".hero-corner",
+      {
+        opacity: 1,
+        duration: 1.5,
+        ease: "power2.out",
+      },
+      0,
+    );
 
-    tl.to("#sub-title", { opacity: 1, duration: 1, ease: "power2.out" })
-      .to("#name-wrapper", { opacity: 1, duration: 0 })
-      .to(pathEl, {
-        strokeDashoffset: 0,
-        duration: 25,
-        ease: "none",
-      })
+    tl.to("#sub-title", { opacity: 1, duration: 1, ease: "power2.out" }, 0)
+      .to("#name-wrapper", { opacity: 1, duration: 0 }, 0)
+      .to(
+        pathEl,
+        {
+          strokeDashoffset: 0,
+          duration: 25,
+          ease: "none",
+        },
+        0,
+      )
       .to(
         pathEl,
         {

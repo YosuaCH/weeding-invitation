@@ -25,13 +25,162 @@
     <script src="assets/js/gallery_animation.js" defer></script>
     <script src="assets/js/gift_animation.js" defer></script>
     <script src="assets/js/wishes_animation.js" defer></script>
+    <script src="assets/js/cover_animation.js" defer></script>
   </head>
   <body class="bg-[#f9f6f1] text-white font-sans overflow-hidden">
+    <div
+      id="cover-overlay"
+      class="fixed inset-0 z-[9999] flex items-stretch overflow-hidden"
+      style="background: #f2ede6"
+    >
+      <!-- Left Panel: Text Content -->
+      <div
+        class="relative flex flex-col justify-between w-full md:w-1/2 px-8 md:px-16 py-12 z-10"
+      >
+        <!-- Top: Logo / Date -->
+        <div class="flex items-center justify-between">
+          <div
+            class="text-[9px] tracking-[0.4em] uppercase text-[#1a1a1a]/40 font-sans"
+          >
+            24 . 12 . 2026
+          </div>
+          <div
+            class="text-[9px] tracking-[0.4em] uppercase text-[#1a1a1a]/40 font-sans"
+          >
+            Wedding Invitation
+          </div>
+        </div>
+
+        <!-- Middle: Guest Name & Couple Name -->
+        <div class="flex flex-col gap-8">
+          <!-- Divider -->
+          <div class="w-12 h-[1px] bg-[#1a1a1a]/20"></div>
+
+          <!-- Addressed To -->
+          <div>
+            <p
+              id="cover-addressed"
+              class="text-[10px] tracking-[0.35em] uppercase text-[#1a1a1a]/50 font-sans mb-3 opacity-0"
+            >
+              — Kepada Yth. —
+            </p>
+            <h1
+              id="cover-guest-name"
+              class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#1a1a1a] leading-[1.1] opacity-0"
+            >
+              <!-- Injected by JS from ?to= param -->
+              Tamu Undangan
+            </h1>
+          </div>
+
+          <!-- Couple -->
+          <div class="opacity-0" id="cover-couple">
+            <div class="w-8 h-[1px] bg-[#1a1a1a]/30 mb-6"></div>
+            <p
+              class="text-[10px] tracking-[0.35em] uppercase text-[#1a1a1a]/40 font-sans mb-2"
+            >
+              Turut mengundang Anda di pernikahan
+            </p>
+            <p class="font-serif text-2xl md:text-3xl text-[#1a1a1a] italic">
+              David
+              <span class="font-sans text-base not-italic text-[#1a1a1a]/50"
+                >&</span
+              >
+              Sarah
+            </p>
+          </div>
+        </div>
+
+        <!-- Bottom: CTA Button -->
+        <div class="opacity-0" id="cover-cta">
+          <button
+            id="open-invitation-btn"
+            class="group flex items-center gap-4 text-[#1a1a1a] hover:gap-6 transition-all duration-500"
+          >
+            <span class="text-[10px] tracking-[0.4em] uppercase font-sans"
+              >Buka Undangan</span
+            >
+            <div
+              class="w-8 h-[1px] bg-[#1a1a1a] group-hover:w-12 transition-all duration-500"
+            ></div>
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              class="group-hover:translate-x-1 transition-transform duration-300"
+            >
+              <path
+                d="M1 7h12M7 1l6 6-6 6"
+                stroke="#1a1a1a"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Panel: Decorative Image (hidden on mobile) -->
+      <div class="hidden md:block relative w-1/2 overflow-hidden">
+        <!-- Vertical decorative line -->
+        <div
+          class="absolute left-0 top-0 bottom-0 w-[1px] bg-[#1a1a1a]/10 z-10"
+        ></div>
+
+        <!-- Main image fills the panel -->
+        <div
+          id="cover-img-main"
+          class="absolute inset-0 opacity-0"
+          style="transform: scale(1.08)"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=100&w=1600&auto=format&fit=crop"
+            class="w-full h-full object-cover"
+            alt="Cover"
+          />
+          <!-- Overlay tint -->
+          <div
+            class="absolute inset-0"
+            style="background: rgba(242, 237, 230, 0.15)"
+          ></div>
+        </div>
+
+        <!-- Floating small caption bottom-right -->
+        <div
+          class="absolute bottom-12 right-12 z-20 text-right opacity-0"
+          id="cover-caption"
+        >
+          <p
+            class="text-[9px] tracking-[0.4em] uppercase text-[#1a1a1a]/40 font-sans"
+          >
+            A Story of
+          </p>
+          <p class="font-serif text-xl text-[#1a1a1a]/60 italic">
+            Love & Promise
+          </p>
+        </div>
+      </div>
+
+      <div
+        id="cover-exit-panel"
+        class="absolute inset-0 z-20 pointer-events-none"
+        style="background: #1a1a1a; transform: translateY(100%)"
+      ></div>
+    </div>
+
     <!-- Hero Section -->
     <section class="relative h-screen w-full flex items-center justify-center">
       <!-- Background Video -->
       <div class="absolute inset-0">
-        <video playsinline autoplay loop muted class="w-full h-full object-cover">
+        <video
+          playsinline
+          autoplay
+          loop
+          muted
+          class="w-full h-full object-cover"
+        >
           <source src="assets/video/flower.mp4" type="video/mp4" />
         </video>
         <!-- Overlay -->
@@ -400,14 +549,17 @@
 
         <!-- Mobile Layout (Staggered Editorial with Narrative) -->
         <div class="block md:hidden flex flex-col pb-12 overflow-x-hidden">
-          
           <!-- Section 1 -->
           <div class="w-full px-4 mb-8 mt-4">
             <h3 class="text-3xl font-serif leading-[1.1] text-[#1a1a1a] mb-4">
               The Beginning
             </h3>
             <p class="text-sm text-neutral-600 leading-relaxed font-sans">
-              Everything started with a simple meeting that neither of us expected would become the beginning of something beautiful. What began as a few conversations gradually turned into a special connection, and we found comfort and happiness in each other's presence.
+              Everything started with a simple meeting that neither of us
+              expected would become the beginning of something beautiful. What
+              began as a few conversations gradually turned into a special
+              connection, and we found comfort and happiness in each other's
+              presence.
             </p>
           </div>
 
@@ -430,7 +582,11 @@
               Growing Together
             </h3>
             <p class="text-sm text-neutral-600 leading-relaxed font-sans">
-              As time passed, our bond grew stronger. We shared laughter, supported one another through challenges, and created countless memories together. Through every moment, we learned that love is not only about happiness, but also about growing and building a future side by side.
+              As time passed, our bond grew stronger. We shared laughter,
+              supported one another through challenges, and created countless
+              memories together. Through every moment, we learned that love is
+              not only about happiness, but also about growing and building a
+              future side by side.
             </p>
           </div>
 
@@ -453,7 +609,10 @@
               Our Forever Begins
             </h3>
             <p class="text-sm text-neutral-600 leading-relaxed font-sans">
-              Today, with grateful hearts and the blessing of our families, we are ready to begin a new chapter together. This is not the end of our story, but the start of a lifelong journey filled with love, trust, and endless adventures.
+              Today, with grateful hearts and the blessing of our families, we
+              are ready to begin a new chapter together. This is not the end of
+              our story, but the start of a lifelong journey filled with love,
+              trust, and endless adventures.
             </p>
           </div>
 
@@ -469,7 +628,6 @@
               </div>
             </div>
           </article>
-
         </div>
 
         <!-- Desktop Layout (Pinned Scroll) -->
@@ -498,31 +656,60 @@
                   <div
                     class="flex flex-col items-center justify-center text-center gap-6 px-4 z-10 w-full h-full relative"
                   >
-                    <div class="story-step flex flex-col items-center justify-center text-center gap-3 absolute w-full px-4 md:px-8">
-
-                      <h3 class="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1a1a1a] leading-tight">
+                    <div
+                      class="story-step flex flex-col items-center justify-center text-center gap-3 absolute w-full px-4 md:px-8"
+                    >
+                      <h3
+                        class="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1a1a1a] leading-tight"
+                      >
                         The <span class="italic font-light">Beginning</span>
                       </h3>
-                      <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-sans max-w-md mt-2">
-                        Everything started with a simple meeting that neither of us expected would become the beginning of something beautiful. What began as a few conversations gradually turned into a special connection, and we found comfort and happiness in each other's presence.
+                      <p
+                        class="text-xs md:text-sm text-neutral-600 leading-relaxed font-sans max-w-md mt-2"
+                      >
+                        Everything started with a simple meeting that neither of
+                        us expected would become the beginning of something
+                        beautiful. What began as a few conversations gradually
+                        turned into a special connection, and we found comfort
+                        and happiness in each other's presence.
                       </p>
                     </div>
-                    <div class="story-step flex flex-col items-center justify-center text-center gap-3 absolute w-full px-4 md:px-8">
-
-                      <h3 class="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1a1a1a] leading-tight">
+                    <div
+                      class="story-step flex flex-col items-center justify-center text-center gap-3 absolute w-full px-4 md:px-8"
+                    >
+                      <h3
+                        class="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1a1a1a] leading-tight"
+                      >
                         Growing <span class="italic font-light">Together</span>
                       </h3>
-                      <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-sans max-w-md mt-2">
-                        As time passed, our bond grew stronger. We shared laughter, supported one another through challenges, and created countless memories together. Through every moment, we learned that love is not only about happiness, but also about growing and building a future side by side.
+                      <p
+                        class="text-xs md:text-sm text-neutral-600 leading-relaxed font-sans max-w-md mt-2"
+                      >
+                        As time passed, our bond grew stronger. We shared
+                        laughter, supported one another through challenges, and
+                        created countless memories together. Through every
+                        moment, we learned that love is not only about
+                        happiness, but also about growing and building a future
+                        side by side.
                       </p>
                     </div>
-                    <div class="story-step flex flex-col items-center justify-center text-center gap-3 absolute w-full px-4 md:px-8">
-
-                      <h3 class="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1a1a1a] leading-tight">
-                        Our <span class="italic font-light">Forever</span> Begins
+                    <div
+                      class="story-step flex flex-col items-center justify-center text-center gap-3 absolute w-full px-4 md:px-8"
+                    >
+                      <h3
+                        class="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1a1a1a] leading-tight"
+                      >
+                        Our
+                        <span class="italic font-light">Forever</span> Begins
                       </h3>
-                      <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-sans max-w-md mt-2">
-                        Today, with grateful hearts and the blessing of our families, we are ready to begin a new chapter together. This is not the end of our story, but the start of a lifelong journey filled with love, trust, and endless adventures.
+                      <p
+                        class="text-xs md:text-sm text-neutral-600 leading-relaxed font-sans max-w-md mt-2"
+                      >
+                        Today, with grateful hearts and the blessing of our
+                        families, we are ready to begin a new chapter together.
+                        This is not the end of our story, but the start of a
+                        lifelong journey filled with love, trust, and endless
+                        adventures.
                       </p>
                     </div>
                   </div>

@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", async () => {
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+  window.scrollTo(0, 0);
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+
   const params = new URLSearchParams(window.location.search);
   let guestName = params.get("to");
 
@@ -86,6 +94,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const lenisStopInterval = setInterval(() => {
     if (window.lenisInstance) {
+      window.lenisInstance.scrollTo(0, { immediate: true });
       window.lenisInstance.stop();
       clearInterval(lenisStopInterval);
     }

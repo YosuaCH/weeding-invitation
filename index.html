@@ -15,7 +15,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Global CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Scripts -->
+    <script src="assets/js/supabase_config.js" defer></script>
     <script src="assets/js/hero_text_animation.js" defer></script>
     <script src="assets/js/story_animation.js" defer></script>
     <script src="assets/js/adaptif_text_animation.js" defer></script>
@@ -62,15 +65,21 @@
               id="cover-addressed"
               class="text-[10px] tracking-[0.35em] uppercase text-[#1a1a1a]/50 font-sans mb-3 opacity-0"
             >
-              — Kepada Yth. —
+              — Dear —
             </p>
             <h1
               id="cover-guest-name"
               class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#1a1a1a] leading-[1.1] opacity-0"
             >
               <!-- Injected by JS from ?to= param -->
-              Tamu Undangan
+              Guest
             </h1>
+            <p
+              id="cover-total-guests"
+              class="text-xs md:text-sm tracking-[0.1em] text-[#1a1a1a]/60 font-sans mt-4 opacity-0 hidden"
+            >
+              For <span id="guest-count-val">1</span> Person(s)
+            </p>
           </div>
 
           <!-- Couple -->
@@ -79,7 +88,7 @@
             <p
               class="text-[10px] tracking-[0.35em] uppercase text-[#1a1a1a]/40 font-sans mb-2"
             >
-              Turut mengundang Anda di pernikahan
+              Joyfully invite you to the wedding of
             </p>
             <p class="font-serif text-2xl md:text-3xl text-[#1a1a1a] italic">
               David
@@ -98,7 +107,7 @@
             class="group flex items-center gap-4 text-[#1a1a1a] hover:gap-6 transition-all duration-500"
           >
             <span class="text-[10px] tracking-[0.4em] uppercase font-sans"
-              >Buka Undangan</span
+              >Open Invitation</span
             >
             <div
               class="w-8 h-[1px] bg-[#1a1a1a] group-hover:w-12 transition-all duration-500"

@@ -1,10 +1,55 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const params = new URLSearchParams(window.location.search);
-  const guestName = params.get("to");
+  let guestName = params.get("to");
 
-  const guestNameEl = document.getElementById("cover-guest-name");
-  if (guestNameEl && guestName) {
-    guestNameEl.textContent = decodeURIComponent(guestName);
+  if (guestName) {
+    guestName = decodeURIComponent(guestName);
+
+    // Ambil data tamu dari Supabase
+    try {
+      if (window.supabaseAuthPromise) {
+        await window.supabaseAuthPromise;
+      }
+
+      let query = window.supabaseClient
+        .from("master_guest")
+        .select("guest_id, guest_name, total_guests")
+        .ilike("guest_name", `%${guestName.trim()}%`);
+
+      const { data, error } = await query.limit(1);
+
+      if (error) {
+        console.error("Supabase Error:", error);
+        alert(
+          "Gagal terhubung ke database. Cek pengaturan RLS (Error: " +
+            (error.message || error.code) +
+            ")",
+        );
+      } else if (data && data.length > 0) {
+        window.currentGuestData.id = data[0].guest_id;
+        window.currentGuestData.name = data[0].guest_name;
+        window.currentGuestData.total_guests = data[0].total_guests;
+
+        const guestNameEl = document.getElementById("cover-guest-name");
+        if (guestNameEl) {
+          guestNameEl.textContent = data[0].guest_name;
+        }
+        
+        const totalGuestsEl = document.getElementById("cover-total-guests");
+        const totalGuestsValEl = document.getElementById("guest-count-val");
+        if (totalGuestsEl && totalGuestsValEl && data[0].total_guests) {
+          totalGuestsValEl.textContent = data[0].total_guests;
+          totalGuestsEl.classList.remove("hidden");
+        }
+      } else {
+        const identifier = `Nama '${guestName}'`;
+        console.warn("Data tamu tidak terdaftar di database:", identifier);
+        alert(identifier + " tidak ditemukan di database Supabase.");
+      }
+    } catch (e) {
+      console.error("Gagal mengambil data tamu", e);
+      alert("Terjadi kesalahan sistem saat menghubungi database: " + e.message);
+    }
   }
 
   const SCROLL_KEYS = [32, 33, 34, 35, 36, 37, 38, 39, 40];
@@ -58,6 +103,11 @@ document.addEventListener("DOMContentLoaded", () => {
       "#cover-guest-name",
       { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
       "-=0.5",
+    )
+    .to(
+      "#cover-total-guests",
+      { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+      "-=0.6",
     )
     .to(
       "#cover-img-main",

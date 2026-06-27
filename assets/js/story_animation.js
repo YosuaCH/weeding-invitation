@@ -155,4 +155,24 @@ document.addEventListener("DOMContentLoaded", () => {
       stepTl.to({}, { duration: 1 });
     }
   }
+
+  // Mobile Slideshow Animation per Group
+  const mobileStoryGroups = document.querySelectorAll(".mobile-story-group");
+  if (mobileStoryGroups.length > 0) {
+    mobileStoryGroups.forEach((group) => {
+      const images = group.querySelectorAll("img");
+      if (images.length > 1) {
+        let currentSlide = 0;
+        setInterval(() => {
+          images[currentSlide].classList.remove("opacity-100");
+          images[currentSlide].classList.add("opacity-0");
+
+          currentSlide = (currentSlide + 1) % images.length;
+
+          images[currentSlide].classList.remove("opacity-0");
+          images[currentSlide].classList.add("opacity-100");
+        }, 2000);
+      }
+    });
+  }
 });

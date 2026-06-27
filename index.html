@@ -575,11 +575,16 @@
           <!-- Image 1 Mobile (Right) -->
           <article class="w-full flex justify-end px-4 mb-16">
             <div class="w-[75vw] max-w-[280px]">
-              <div class="w-full aspect-[4/5] bg-[#e6e2dd] overflow-hidden">
+              <div class="mobile-story-group w-full aspect-[4/5] bg-[#e6e2dd] overflow-hidden relative">
                 <img
                   src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=100&w=1600&auto=format&fit=crop"
-                  class="w-full h-full object-cover"
-                  alt="The Beginning"
+                  class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100"
+                  alt="The Beginning 1"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=100&w=1600&auto=format&fit=crop"
+                  class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0"
+                  alt="The Beginning 2"
                 />
               </div>
             </div>
@@ -602,11 +607,16 @@
           <!-- Image 2 Mobile (Left) -->
           <article class="w-full flex justify-start px-4 mb-16">
             <div class="w-[75vw] max-w-[280px]">
-              <div class="w-full aspect-[4/5] bg-[#3a444d] overflow-hidden">
+              <div class="mobile-story-group w-full aspect-[4/5] bg-[#3a444d] overflow-hidden relative">
                 <img
                   src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=100&w=1600&auto=format&fit=crop"
-                  class="w-full h-full object-cover"
-                  alt="Growing Together"
+                  class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100"
+                  alt="Growing Together 1"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=100&w=1600&auto=format&fit=crop"
+                  class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0"
+                  alt="Growing Together 2"
                 />
               </div>
             </div>
@@ -628,11 +638,16 @@
           <!-- Image 3 Mobile (Right) -->
           <article class="w-full flex justify-end px-4">
             <div class="w-[75vw] max-w-[280px]">
-              <div class="w-full aspect-[4/5] bg-[#2d3a3a] overflow-hidden">
+              <div class="mobile-story-group w-full aspect-[4/5] bg-[#2d3a3a] overflow-hidden relative">
                 <img
                   src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=100&w=1600&auto=format&fit=crop"
-                  class="w-full h-full object-cover"
-                  alt="Our Forever Begins"
+                  class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100"
+                  alt="Our Forever Begins 1"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=100&w=1600&auto=format&fit=crop"
+                  class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0"
+                  alt="Our Forever Begins 2"
                 />
               </div>
             </div>
@@ -1382,14 +1397,12 @@
               <!-- Original List -->
               <div
                 class="wishes-list-original flex flex-col gap-16 lg:gap-24 mb-16 lg:mb-24"
-              >
-              </div>
+              ></div>
 
               <!-- Duplicate List for infinite scroll -->
               <div
                 class="wishes-list-duplicate flex flex-col gap-16 lg:gap-24 mb-16 lg:mb-24"
-              >
-              </div>
+              ></div>
             </div>
           </div>
         </div>

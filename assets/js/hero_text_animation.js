@@ -1,4 +1,4 @@
-const names = "Person 1 & Person 2";
+const names = "David & Sarah";
 
 opentype.load(
   "https://cdn.jsdelivr.net/npm/@fontsource/great-vibes/files/great-vibes-latin-400-normal.woff",
